@@ -1,0 +1,6 @@
+module Pods_Game_OChat {
+  umbrella header "Pods-Game'OChat-umbrella.h"
+
+  export *
+  module * { export * }
+}

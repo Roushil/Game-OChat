@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "126EFDFC-E5F9-41A5-9ABE-7ADD236B7B4B"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC187AFE-EB7D-4A5F-A443-CC3DEF3A28CF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Game&apos;OChat/ChatLog Scene/Interactor/ChatLogInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "passMessageDetails(message:userDetail:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "084C5E6E-E51F-4201-AA85-AE289B1D923F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Game&apos;OChat/AddContacts Scene/Presenter/AddContactsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "present(response:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "084C5E6E-E51F-4201-AA85-AE289B1D923F - 3d8ff2038663fc2b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Game_OChat.AddContactsPresenter.present(response: Game_OChat.AddContacts.Fetch.Response) -&gt; ()"
+                  moduleName = "Game&apos;OChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Roushil/Desktop/Game&apos;OChat/Game&apos;OChat/AddContacts%20Scene/Presenter/AddContactsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "43">
+               </Location>
+               <Location
+                  uuid = "084C5E6E-E51F-4201-AA85-AE289B1D923F - 55c1c407770d7d3"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Game_OChat.AddContactsModel) -&gt; Game_OChat.AddContactsViewModel in Game_OChat.AddContactsPresenter.present(response: Game_OChat.AddContacts.Fetch.Response) -&gt; ()"
+                  moduleName = "Game&apos;OChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Roushil/Desktop/Game&apos;OChat/Game&apos;OChat/AddContacts%20Scene/Presenter/AddContactsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

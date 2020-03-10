@@ -3,27 +3,141 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0AB82D2406FCE20096C0A0 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0AB82C2406FCE20096C0A0 /* Constraints.swift */; };
+		2B2BB14E23F7DEAD00DB3BCA /* AddContactsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB14223F7DEAC00DB3BCA /* AddContactsModels.swift */; };
+		2B2BB14F23F7DEAD00DB3BCA /* AddContactsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB14423F7DEAC00DB3BCA /* AddContactsPresenter.swift */; };
+		2B2BB15023F7DEAD00DB3BCA /* AddContactsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB14523F7DEAC00DB3BCA /* AddContactsConfigurator.swift */; };
+		2B2BB15123F7DEAD00DB3BCA /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB14723F7DEAC00DB3BCA /* AddContactsViewController.swift */; };
+		2B2BB15223F7DEAD00DB3BCA /* AddContactsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB14923F7DEAC00DB3BCA /* AddContactsWorker.swift */; };
+		2B2BB15323F7DEAD00DB3BCA /* AddContactsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB14A23F7DEAC00DB3BCA /* AddContactsDataStore.swift */; };
+		2B2BB15423F7DEAD00DB3BCA /* AddContactsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB14B23F7DEAC00DB3BCA /* AddContactsInteractor.swift */; };
+		2B2BB15523F7DEAD00DB3BCA /* AddContactsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB14D23F7DEAC00DB3BCA /* AddContactsRouter.swift */; };
+		2B2BB15823F7E1BA00DB3BCA /* AddContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB15723F7E1BA00DB3BCA /* AddContactViewCell.swift */; };
+		2B3126C724091919008991E3 /* ChatLogModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3126BB24091919008991E3 /* ChatLogModels.swift */; };
+		2B3126C824091919008991E3 /* ChatLogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3126BD24091919008991E3 /* ChatLogPresenter.swift */; };
+		2B3126C924091919008991E3 /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3126BF24091919008991E3 /* ChatLogViewController.swift */; };
+		2B3126CA24091919008991E3 /* ChatLogDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3126C124091919008991E3 /* ChatLogDataStore.swift */; };
+		2B3126CB24091919008991E3 /* ChatLogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3126C224091919008991E3 /* ChatLogInteractor.swift */; };
+		2B3126CC24091919008991E3 /* ChatLogWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3126C324091919008991E3 /* ChatLogWorker.swift */; };
+		2B3126CD24091919008991E3 /* ChatLogConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3126C424091919008991E3 /* ChatLogConfigurator.swift */; };
+		2B3126CE24091919008991E3 /* ChatLogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3126C624091919008991E3 /* ChatLogRouter.swift */; };
+		2B3126D22409A7D0008991E3 /* ContactMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3126D12409A7D0008991E3 /* ContactMessageCell.swift */; };
+		2B7F93CF24052C8400578FC1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F93CE24052C8400578FC1 /* Extensions.swift */; };
+		2B814400240E42AC006E5C2F /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8143FE240E42AC006E5C2F /* ChatCollectionViewCell.swift */; };
+		2BB32C88240BE20300BCA892 /* MessagePartners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB32C87240BE20300BCA892 /* MessagePartners.swift */; };
 		2BEB801523F1465000D6E15F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB801423F1465000D6E15F /* AppDelegate.swift */; };
 		2BEB801723F1465000D6E15F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB801623F1465000D6E15F /* SceneDelegate.swift */; };
-		2BEB801923F1465000D6E15F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB801823F1465000D6E15F /* ViewController.swift */; };
 		2BEB801C23F1465000D6E15F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB801A23F1465000D6E15F /* Main.storyboard */; };
 		2BEB801E23F1465800D6E15F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB801D23F1465800D6E15F /* Assets.xcassets */; };
 		2BEB802123F1465800D6E15F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB801F23F1465800D6E15F /* LaunchScreen.storyboard */; };
+		2BEB802F23F15D7900D6E15F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB802E23F15D7900D6E15F /* Constants.swift */; };
+		2BFE39AF23F2A31F0022B135 /* LogInOrRegisterModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39A323F2A31F0022B135 /* LogInOrRegisterModels.swift */; };
+		2BFE39B023F2A31F0022B135 /* LogInOrRegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39A523F2A31F0022B135 /* LogInOrRegisterPresenter.swift */; };
+		2BFE39B123F2A31F0022B135 /* LogInOrRegisterConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39A623F2A31F0022B135 /* LogInOrRegisterConfigurator.swift */; };
+		2BFE39B223F2A31F0022B135 /* LogInOrRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39A823F2A31F0022B135 /* LogInOrRegisterViewController.swift */; };
+		2BFE39B323F2A3200022B135 /* LogInOrRegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39AA23F2A31F0022B135 /* LogInOrRegisterInteractor.swift */; };
+		2BFE39B423F2A3200022B135 /* LogInOrRegisterWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39AB23F2A31F0022B135 /* LogInOrRegisterWorker.swift */; };
+		2BFE39B523F2A3200022B135 /* LogInOrRegisterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39AC23F2A31F0022B135 /* LogInOrRegisterDataStore.swift */; };
+		2BFE39B623F2A3200022B135 /* LogInOrRegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39AE23F2A31F0022B135 /* LogInOrRegisterRouter.swift */; };
+		2BFE39C923F2AD2A0022B135 /* ContactsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39BD23F2AD2A0022B135 /* ContactsModels.swift */; };
+		2BFE39CA23F2AD2A0022B135 /* ContactsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39BF23F2AD2A0022B135 /* ContactsPresenter.swift */; };
+		2BFE39CB23F2AD2A0022B135 /* ContactsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39C023F2AD2A0022B135 /* ContactsConfigurator.swift */; };
+		2BFE39CC23F2AD2A0022B135 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39C223F2AD2A0022B135 /* ContactsViewController.swift */; };
+		2BFE39CD23F2AD2A0022B135 /* ContactsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39C423F2AD2A0022B135 /* ContactsDataStore.swift */; };
+		2BFE39CE23F2AD2A0022B135 /* ContactsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39C523F2AD2A0022B135 /* ContactsWorker.swift */; };
+		2BFE39CF23F2AD2A0022B135 /* ContactsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39C623F2AD2A0022B135 /* ContactsInteractor.swift */; };
+		2BFE39D023F2AD2A0022B135 /* ContactsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39C823F2AD2A0022B135 /* ContactsRouter.swift */; };
+		2BFE39E323F2AD970022B135 /* RegistrationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39D723F2AD970022B135 /* RegistrationModels.swift */; };
+		2BFE39E423F2AD970022B135 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39D923F2AD970022B135 /* RegistrationPresenter.swift */; };
+		2BFE39E523F2AD970022B135 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39DB23F2AD970022B135 /* RegistrationViewController.swift */; };
+		2BFE39E623F2AD970022B135 /* RegistrationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39DC23F2AD970022B135 /* RegistrationConfigurator.swift */; };
+		2BFE39E723F2AD970022B135 /* RegistrationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39DE23F2AD970022B135 /* RegistrationWorker.swift */; };
+		2BFE39E823F2AD970022B135 /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39DF23F2AD970022B135 /* RegistrationInteractor.swift */; };
+		2BFE39E923F2AD970022B135 /* RegistrationDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39E023F2AD970022B135 /* RegistrationDataStore.swift */; };
+		2BFE39EA23F2AD970022B135 /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39E223F2AD970022B135 /* RegistrationRouter.swift */; };
+		2BFE39F923F2AD9F0022B135 /* LogInModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39ED23F2AD9E0022B135 /* LogInModels.swift */; };
+		2BFE39FA23F2AD9F0022B135 /* LogInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39EF23F2AD9E0022B135 /* LogInPresenter.swift */; };
+		2BFE39FB23F2AD9F0022B135 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39F123F2AD9E0022B135 /* LogInViewController.swift */; };
+		2BFE39FC23F2AD9F0022B135 /* LogInConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39F223F2AD9E0022B135 /* LogInConfigurator.swift */; };
+		2BFE39FD23F2AD9F0022B135 /* LogInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39F423F2AD9E0022B135 /* LogInInteractor.swift */; };
+		2BFE39FE23F2AD9F0022B135 /* LogInWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39F523F2AD9E0022B135 /* LogInWorker.swift */; };
+		2BFE39FF23F2AD9F0022B135 /* LogInDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39F623F2AD9E0022B135 /* LogInDataStore.swift */; };
+		2BFE3A0023F2AD9F0022B135 /* LogInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE39F823F2AD9E0022B135 /* LogInRouter.swift */; };
+		2BFE3A0223F2E2400022B135 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BFE3A0123F2E2400022B135 /* GoogleService-Info.plist */; };
+		42A1DE57484F7001918ECD65 /* libPods-Game'OChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F810502853B199C9202D88B8 /* libPods-Game'OChat.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24C62D13AE96BA1F1096F4F8 /* Pods-Game'OChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Game'OChat.release.xcconfig"; path = "Target Support Files/Pods-Game'OChat/Pods-Game'OChat.release.xcconfig"; sourceTree = "<group>"; };
+		2B0AB82C2406FCE20096C0A0 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		2B2BB14223F7DEAC00DB3BCA /* AddContactsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsModels.swift; sourceTree = "<group>"; };
+		2B2BB14423F7DEAC00DB3BCA /* AddContactsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsPresenter.swift; sourceTree = "<group>"; };
+		2B2BB14523F7DEAC00DB3BCA /* AddContactsConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsConfigurator.swift; sourceTree = "<group>"; };
+		2B2BB14723F7DEAC00DB3BCA /* AddContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
+		2B2BB14923F7DEAC00DB3BCA /* AddContactsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsWorker.swift; sourceTree = "<group>"; };
+		2B2BB14A23F7DEAC00DB3BCA /* AddContactsDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsDataStore.swift; sourceTree = "<group>"; };
+		2B2BB14B23F7DEAC00DB3BCA /* AddContactsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsInteractor.swift; sourceTree = "<group>"; };
+		2B2BB14D23F7DEAC00DB3BCA /* AddContactsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsRouter.swift; sourceTree = "<group>"; };
+		2B2BB15723F7E1BA00DB3BCA /* AddContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewCell.swift; sourceTree = "<group>"; };
+		2B3126BB24091919008991E3 /* ChatLogModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogModels.swift; sourceTree = "<group>"; };
+		2B3126BD24091919008991E3 /* ChatLogPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogPresenter.swift; sourceTree = "<group>"; };
+		2B3126BF24091919008991E3 /* ChatLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
+		2B3126C124091919008991E3 /* ChatLogDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogDataStore.swift; sourceTree = "<group>"; };
+		2B3126C224091919008991E3 /* ChatLogInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogInteractor.swift; sourceTree = "<group>"; };
+		2B3126C324091919008991E3 /* ChatLogWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogWorker.swift; sourceTree = "<group>"; };
+		2B3126C424091919008991E3 /* ChatLogConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogConfigurator.swift; sourceTree = "<group>"; };
+		2B3126C624091919008991E3 /* ChatLogRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogRouter.swift; sourceTree = "<group>"; };
+		2B3126D12409A7D0008991E3 /* ContactMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMessageCell.swift; sourceTree = "<group>"; };
+		2B7F93CE24052C8400578FC1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2B8143FE240E42AC006E5C2F /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		2BB32C87240BE20300BCA892 /* MessagePartners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePartners.swift; sourceTree = "<group>"; };
 		2BEB801123F1465000D6E15F /* Game'OChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game'OChat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BEB801423F1465000D6E15F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BEB801623F1465000D6E15F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2BEB801823F1465000D6E15F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2BEB801B23F1465000D6E15F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BEB801D23F1465800D6E15F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BEB802023F1465800D6E15F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BEB802223F1465800D6E15F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BEB802E23F15D7900D6E15F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2BFE39A323F2A31F0022B135 /* LogInOrRegisterModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInOrRegisterModels.swift; sourceTree = "<group>"; };
+		2BFE39A523F2A31F0022B135 /* LogInOrRegisterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInOrRegisterPresenter.swift; sourceTree = "<group>"; };
+		2BFE39A623F2A31F0022B135 /* LogInOrRegisterConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInOrRegisterConfigurator.swift; sourceTree = "<group>"; };
+		2BFE39A823F2A31F0022B135 /* LogInOrRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInOrRegisterViewController.swift; sourceTree = "<group>"; };
+		2BFE39AA23F2A31F0022B135 /* LogInOrRegisterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInOrRegisterInteractor.swift; sourceTree = "<group>"; };
+		2BFE39AB23F2A31F0022B135 /* LogInOrRegisterWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInOrRegisterWorker.swift; sourceTree = "<group>"; };
+		2BFE39AC23F2A31F0022B135 /* LogInOrRegisterDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInOrRegisterDataStore.swift; sourceTree = "<group>"; };
+		2BFE39AE23F2A31F0022B135 /* LogInOrRegisterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInOrRegisterRouter.swift; sourceTree = "<group>"; };
+		2BFE39BD23F2AD2A0022B135 /* ContactsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsModels.swift; sourceTree = "<group>"; };
+		2BFE39BF23F2AD2A0022B135 /* ContactsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsPresenter.swift; sourceTree = "<group>"; };
+		2BFE39C023F2AD2A0022B135 /* ContactsConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsConfigurator.swift; sourceTree = "<group>"; };
+		2BFE39C223F2AD2A0022B135 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		2BFE39C423F2AD2A0022B135 /* ContactsDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsDataStore.swift; sourceTree = "<group>"; };
+		2BFE39C523F2AD2A0022B135 /* ContactsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsWorker.swift; sourceTree = "<group>"; };
+		2BFE39C623F2AD2A0022B135 /* ContactsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsInteractor.swift; sourceTree = "<group>"; };
+		2BFE39C823F2AD2A0022B135 /* ContactsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsRouter.swift; sourceTree = "<group>"; };
+		2BFE39D723F2AD970022B135 /* RegistrationModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationModels.swift; sourceTree = "<group>"; };
+		2BFE39D923F2AD970022B135 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		2BFE39DB23F2AD970022B135 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		2BFE39DC23F2AD970022B135 /* RegistrationConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationConfigurator.swift; sourceTree = "<group>"; };
+		2BFE39DE23F2AD970022B135 /* RegistrationWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationWorker.swift; sourceTree = "<group>"; };
+		2BFE39DF23F2AD970022B135 /* RegistrationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
+		2BFE39E023F2AD970022B135 /* RegistrationDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationDataStore.swift; sourceTree = "<group>"; };
+		2BFE39E223F2AD970022B135 /* RegistrationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
+		2BFE39ED23F2AD9E0022B135 /* LogInModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInModels.swift; sourceTree = "<group>"; };
+		2BFE39EF23F2AD9E0022B135 /* LogInPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInPresenter.swift; sourceTree = "<group>"; };
+		2BFE39F123F2AD9E0022B135 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		2BFE39F223F2AD9E0022B135 /* LogInConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInConfigurator.swift; sourceTree = "<group>"; };
+		2BFE39F423F2AD9E0022B135 /* LogInInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInInteractor.swift; sourceTree = "<group>"; };
+		2BFE39F523F2AD9E0022B135 /* LogInWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInWorker.swift; sourceTree = "<group>"; };
+		2BFE39F623F2AD9E0022B135 /* LogInDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInDataStore.swift; sourceTree = "<group>"; };
+		2BFE39F823F2AD9E0022B135 /* LogInRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInRouter.swift; sourceTree = "<group>"; };
+		2BFE3A0123F2E2400022B135 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		64BF51096C9794FA9D79C639 /* Pods-Game'OChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Game'OChat.debug.xcconfig"; path = "Target Support Files/Pods-Game'OChat/Pods-Game'OChat.debug.xcconfig"; sourceTree = "<group>"; };
+		F810502853B199C9202D88B8 /* libPods-Game'OChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Game'OChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +145,205 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A1DE57484F7001918ECD65 /* libPods-Game'OChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B2BB13D23F7175500DB3BCA /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39F523F2AD9E0022B135 /* LogInWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		2B2BB14023F7DEAC00DB3BCA /* AddContacts Scene */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BB14523F7DEAC00DB3BCA /* AddContactsConfigurator.swift */,
+				2B2BB14123F7DEAC00DB3BCA /* Entity */,
+				2B2BB15623F7DEE400DB3BCA /* Worker */,
+				2B2BB14823F7DEAC00DB3BCA /* Interactor */,
+				2B2BB14323F7DEAC00DB3BCA /* Presenter */,
+				2B2BB14623F7DEAC00DB3BCA /* View */,
+				2B2BB14C23F7DEAC00DB3BCA /* Router */,
+			);
+			path = "AddContacts Scene";
+			sourceTree = "<group>";
+		};
+		2B2BB14123F7DEAC00DB3BCA /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BB14223F7DEAC00DB3BCA /* AddContactsModels.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2B2BB14323F7DEAC00DB3BCA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BB14423F7DEAC00DB3BCA /* AddContactsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2B2BB14623F7DEAC00DB3BCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BB15923F7E1C000DB3BCA /* Cell */,
+				2B2BB14723F7DEAC00DB3BCA /* AddContactsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B2BB14823F7DEAC00DB3BCA /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BB14A23F7DEAC00DB3BCA /* AddContactsDataStore.swift */,
+				2B2BB14B23F7DEAC00DB3BCA /* AddContactsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2B2BB14C23F7DEAC00DB3BCA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BB14D23F7DEAC00DB3BCA /* AddContactsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2B2BB15623F7DEE400DB3BCA /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BB14923F7DEAC00DB3BCA /* AddContactsWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		2B2BB15923F7E1C000DB3BCA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BB15723F7E1BA00DB3BCA /* AddContactViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2B3126B924091919008991E3 /* ChatLog Scene */ = {
+			isa = PBXGroup;
+			children = (
+				2B3126C424091919008991E3 /* ChatLogConfigurator.swift */,
+				2B3126BA24091919008991E3 /* Entity */,
+				2B3126CF24093A6E008991E3 /* Worker */,
+				2B3126C024091919008991E3 /* Interactor */,
+				2B3126BC24091919008991E3 /* Presenter */,
+				2B3126BE24091919008991E3 /* View */,
+				2B3126C524091919008991E3 /* Router */,
+			);
+			path = "ChatLog Scene";
+			sourceTree = "<group>";
+		};
+		2B3126BA24091919008991E3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2B3126BB24091919008991E3 /* ChatLogModels.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2B3126BC24091919008991E3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2B3126BD24091919008991E3 /* ChatLogPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2B3126BE24091919008991E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2BB32C89240D363400BCA892 /* Cell */,
+				2B3126BF24091919008991E3 /* ChatLogViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B3126C024091919008991E3 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2B3126C124091919008991E3 /* ChatLogDataStore.swift */,
+				2B3126C224091919008991E3 /* ChatLogInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2B3126C524091919008991E3 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2B3126C624091919008991E3 /* ChatLogRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2B3126CF24093A6E008991E3 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				2B3126C324091919008991E3 /* ChatLogWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		2B3126D02409A761008991E3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2B3126D12409A7D0008991E3 /* ContactMessageCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2B58427E23F3CECF00E9B75D /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39DE23F2AD970022B135 /* RegistrationWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		2B58427F23F6F6D400E9B75D /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39C523F2AD2A0022B135 /* ContactsWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		2B75969A240875E400134403 /* Universal Model  */ = {
+			isa = PBXGroup;
+			children = (
+				2B7F93CE24052C8400578FC1 /* Extensions.swift */,
+				2BB32C87240BE20300BCA892 /* MessagePartners.swift */,
+			);
+			path = "Universal Model ";
+			sourceTree = "<group>";
+		};
+		2BB32C89240D363400BCA892 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2B8143FE240E42AC006E5C2F /* ChatCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		2BEB800823F1465000D6E15F = {
 			isa = PBXGroup;
 			children = (
 				2BEB801323F1465000D6E15F /* Game'OChat */,
 				2BEB801223F1465000D6E15F /* Products */,
+				61E51826C872714E6E279C71 /* Pods */,
+				95C0FC819099362D88A9333D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +360,260 @@
 			children = (
 				2BEB801423F1465000D6E15F /* AppDelegate.swift */,
 				2BEB801623F1465000D6E15F /* SceneDelegate.swift */,
-				2BEB801823F1465000D6E15F /* ViewController.swift */,
+				2BEB802E23F15D7900D6E15F /* Constants.swift */,
+				2B75969A240875E400134403 /* Universal Model  */,
+				2BFE39A123F2A31F0022B135 /* LogInOrRegister Scene */,
+				2BFE39BB23F2AD2A0022B135 /* Contact Scene */,
+				2BFE39D523F2AD970022B135 /* Registration Scene */,
+				2BFE39EB23F2AD9E0022B135 /* LogIn Scene */,
+				2B2BB14023F7DEAC00DB3BCA /* AddContacts Scene */,
+				2B3126B924091919008991E3 /* ChatLog Scene */,
 				2BEB801A23F1465000D6E15F /* Main.storyboard */,
 				2BEB801D23F1465800D6E15F /* Assets.xcassets */,
 				2BEB801F23F1465800D6E15F /* LaunchScreen.storyboard */,
+				2BFE3A0123F2E2400022B135 /* GoogleService-Info.plist */,
 				2BEB802223F1465800D6E15F /* Info.plist */,
 			);
 			path = "Game'OChat";
+			sourceTree = "<group>";
+		};
+		2BFE39A123F2A31F0022B135 /* LogInOrRegister Scene */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39A623F2A31F0022B135 /* LogInOrRegisterConfigurator.swift */,
+				2BFE39A223F2A31F0022B135 /* Entity */,
+				2BFE39A923F2A31F0022B135 /* Interactor */,
+				2BFE39A423F2A31F0022B135 /* Presenter */,
+				2BFE39A723F2A31F0022B135 /* View */,
+				2BFE39AD23F2A31F0022B135 /* Router */,
+			);
+			path = "LogInOrRegister Scene";
+			sourceTree = "<group>";
+		};
+		2BFE39A223F2A31F0022B135 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39A323F2A31F0022B135 /* LogInOrRegisterModels.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2BFE39A423F2A31F0022B135 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39A523F2A31F0022B135 /* LogInOrRegisterPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2BFE39A723F2A31F0022B135 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39A823F2A31F0022B135 /* LogInOrRegisterViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BFE39A923F2A31F0022B135 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39AA23F2A31F0022B135 /* LogInOrRegisterInteractor.swift */,
+				2BFE39AB23F2A31F0022B135 /* LogInOrRegisterWorker.swift */,
+				2BFE39AC23F2A31F0022B135 /* LogInOrRegisterDataStore.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2BFE39AD23F2A31F0022B135 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39AE23F2A31F0022B135 /* LogInOrRegisterRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2BFE39BB23F2AD2A0022B135 /* Contact Scene */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39C023F2AD2A0022B135 /* ContactsConfigurator.swift */,
+				2BFE39BC23F2AD2A0022B135 /* Entity */,
+				2B58427F23F6F6D400E9B75D /* Worker */,
+				2BFE39C323F2AD2A0022B135 /* Interactor */,
+				2BFE39BE23F2AD2A0022B135 /* Presenter */,
+				2BFE39C123F2AD2A0022B135 /* View */,
+				2BFE39C723F2AD2A0022B135 /* Router */,
+			);
+			path = "Contact Scene";
+			sourceTree = "<group>";
+		};
+		2BFE39BC23F2AD2A0022B135 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39BD23F2AD2A0022B135 /* ContactsModels.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2BFE39BE23F2AD2A0022B135 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39BF23F2AD2A0022B135 /* ContactsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2BFE39C123F2AD2A0022B135 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B3126D02409A761008991E3 /* Cell */,
+				2B0AB82C2406FCE20096C0A0 /* Constraints.swift */,
+				2BFE39C223F2AD2A0022B135 /* ContactsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BFE39C323F2AD2A0022B135 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39C423F2AD2A0022B135 /* ContactsDataStore.swift */,
+				2BFE39C623F2AD2A0022B135 /* ContactsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2BFE39C723F2AD2A0022B135 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39C823F2AD2A0022B135 /* ContactsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2BFE39D523F2AD970022B135 /* Registration Scene */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39DC23F2AD970022B135 /* RegistrationConfigurator.swift */,
+				2BFE39D623F2AD970022B135 /* Entity */,
+				2B58427E23F3CECF00E9B75D /* Worker */,
+				2BFE39DD23F2AD970022B135 /* Interactor */,
+				2BFE39D823F2AD970022B135 /* Presenter */,
+				2BFE39DA23F2AD970022B135 /* View */,
+				2BFE39E123F2AD970022B135 /* Router */,
+			);
+			path = "Registration Scene";
+			sourceTree = "<group>";
+		};
+		2BFE39D623F2AD970022B135 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39D723F2AD970022B135 /* RegistrationModels.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2BFE39D823F2AD970022B135 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39D923F2AD970022B135 /* RegistrationPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2BFE39DA23F2AD970022B135 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39DB23F2AD970022B135 /* RegistrationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BFE39DD23F2AD970022B135 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39DF23F2AD970022B135 /* RegistrationInteractor.swift */,
+				2BFE39E023F2AD970022B135 /* RegistrationDataStore.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2BFE39E123F2AD970022B135 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39E223F2AD970022B135 /* RegistrationRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2BFE39EB23F2AD9E0022B135 /* LogIn Scene */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39F223F2AD9E0022B135 /* LogInConfigurator.swift */,
+				2BFE39EC23F2AD9E0022B135 /* Entity */,
+				2B2BB13D23F7175500DB3BCA /* Worker */,
+				2BFE39F323F2AD9E0022B135 /* Interactor */,
+				2BFE39EE23F2AD9E0022B135 /* Presenter */,
+				2BFE39F023F2AD9E0022B135 /* View */,
+				2BFE39F723F2AD9E0022B135 /* Router */,
+			);
+			path = "LogIn Scene";
+			sourceTree = "<group>";
+		};
+		2BFE39EC23F2AD9E0022B135 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39ED23F2AD9E0022B135 /* LogInModels.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2BFE39EE23F2AD9E0022B135 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39EF23F2AD9E0022B135 /* LogInPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2BFE39F023F2AD9E0022B135 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39F123F2AD9E0022B135 /* LogInViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BFE39F323F2AD9E0022B135 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39F423F2AD9E0022B135 /* LogInInteractor.swift */,
+				2BFE39F623F2AD9E0022B135 /* LogInDataStore.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2BFE39F723F2AD9E0022B135 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE39F823F2AD9E0022B135 /* LogInRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		61E51826C872714E6E279C71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64BF51096C9794FA9D79C639 /* Pods-Game'OChat.debug.xcconfig */,
+				24C62D13AE96BA1F1096F4F8 /* Pods-Game'OChat.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		95C0FC819099362D88A9333D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F810502853B199C9202D88B8 /* libPods-Game'OChat.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +623,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BEB802523F1465800D6E15F /* Build configuration list for PBXNativeTarget "Game'OChat" */;
 			buildPhases = (
+				642693115E13D8334F726206 /* [CP] Check Pods Manifest.lock */,
 				2BEB800D23F1465000D6E15F /* Sources */,
 				2BEB800E23F1465000D6E15F /* Frameworks */,
 				2BEB800F23F1465000D6E15F /* Resources */,
+				B2E741DFC349E6E4CF0AA81E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +677,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BEB802123F1465800D6E15F /* LaunchScreen.storyboard in Resources */,
+				2BFE3A0223F2E2400022B135 /* GoogleService-Info.plist in Resources */,
 				2BEB801E23F1465800D6E15F /* Assets.xcassets in Resources */,
 				2BEB801C23F1465000D6E15F /* Main.storyboard in Resources */,
 			);
@@ -133,14 +685,110 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		642693115E13D8334F726206 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Game'OChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2E741DFC349E6E4CF0AA81E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Game'OChat/Pods-Game'OChat-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Game'OChat/Pods-Game'OChat-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Game'OChat/Pods-Game'OChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2BEB800D23F1465000D6E15F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BEB801923F1465000D6E15F /* ViewController.swift in Sources */,
+				2BFE39CD23F2AD2A0022B135 /* ContactsDataStore.swift in Sources */,
+				2BFE39C923F2AD2A0022B135 /* ContactsModels.swift in Sources */,
+				2B2BB15323F7DEAD00DB3BCA /* AddContactsDataStore.swift in Sources */,
+				2BFE39E323F2AD970022B135 /* RegistrationModels.swift in Sources */,
+				2BB32C88240BE20300BCA892 /* MessagePartners.swift in Sources */,
+				2BFE39E423F2AD970022B135 /* RegistrationPresenter.swift in Sources */,
+				2B3126C924091919008991E3 /* ChatLogViewController.swift in Sources */,
+				2BFE39E623F2AD970022B135 /* RegistrationConfigurator.swift in Sources */,
+				2BFE39D023F2AD2A0022B135 /* ContactsRouter.swift in Sources */,
+				2B3126C724091919008991E3 /* ChatLogModels.swift in Sources */,
+				2B2BB14E23F7DEAD00DB3BCA /* AddContactsModels.swift in Sources */,
+				2BFE39CE23F2AD2A0022B135 /* ContactsWorker.swift in Sources */,
+				2BFE39FF23F2AD9F0022B135 /* LogInDataStore.swift in Sources */,
+				2B3126C824091919008991E3 /* ChatLogPresenter.swift in Sources */,
+				2B7F93CF24052C8400578FC1 /* Extensions.swift in Sources */,
+				2BFE39B623F2A3200022B135 /* LogInOrRegisterRouter.swift in Sources */,
+				2B2BB15823F7E1BA00DB3BCA /* AddContactViewCell.swift in Sources */,
+				2BFE39E923F2AD970022B135 /* RegistrationDataStore.swift in Sources */,
+				2BFE39E723F2AD970022B135 /* RegistrationWorker.swift in Sources */,
+				2B3126CA24091919008991E3 /* ChatLogDataStore.swift in Sources */,
+				2BFE39B023F2A31F0022B135 /* LogInOrRegisterPresenter.swift in Sources */,
+				2B2BB15023F7DEAD00DB3BCA /* AddContactsConfigurator.swift in Sources */,
+				2BFE39B123F2A31F0022B135 /* LogInOrRegisterConfigurator.swift in Sources */,
+				2B2BB15123F7DEAD00DB3BCA /* AddContactsViewController.swift in Sources */,
+				2B2BB14F23F7DEAD00DB3BCA /* AddContactsPresenter.swift in Sources */,
+				2BFE39FB23F2AD9F0022B135 /* LogInViewController.swift in Sources */,
+				2BFE39CC23F2AD2A0022B135 /* ContactsViewController.swift in Sources */,
+				2BFE39E823F2AD970022B135 /* RegistrationInteractor.swift in Sources */,
+				2B2BB15423F7DEAD00DB3BCA /* AddContactsInteractor.swift in Sources */,
+				2B2BB15523F7DEAD00DB3BCA /* AddContactsRouter.swift in Sources */,
+				2BFE39EA23F2AD970022B135 /* RegistrationRouter.swift in Sources */,
+				2B3126CC24091919008991E3 /* ChatLogWorker.swift in Sources */,
+				2BFE39AF23F2A31F0022B135 /* LogInOrRegisterModels.swift in Sources */,
+				2BFE3A0023F2AD9F0022B135 /* LogInRouter.swift in Sources */,
 				2BEB801523F1465000D6E15F /* AppDelegate.swift in Sources */,
+				2BFE39FD23F2AD9F0022B135 /* LogInInteractor.swift in Sources */,
+				2B814400240E42AC006E5C2F /* ChatCollectionViewCell.swift in Sources */,
+				2BFE39FA23F2AD9F0022B135 /* LogInPresenter.swift in Sources */,
+				2BFE39F923F2AD9F0022B135 /* LogInModels.swift in Sources */,
 				2BEB801723F1465000D6E15F /* SceneDelegate.swift in Sources */,
+				2BFE39CB23F2AD2A0022B135 /* ContactsConfigurator.swift in Sources */,
+				2BFE39FC23F2AD9F0022B135 /* LogInConfigurator.swift in Sources */,
+				2BFE39B223F2A31F0022B135 /* LogInOrRegisterViewController.swift in Sources */,
+				2BFE39CA23F2AD2A0022B135 /* ContactsPresenter.swift in Sources */,
+				2B3126CD24091919008991E3 /* ChatLogConfigurator.swift in Sources */,
+				2BFE39E523F2AD970022B135 /* RegistrationViewController.swift in Sources */,
+				2B0AB82D2406FCE20096C0A0 /* Constraints.swift in Sources */,
+				2BFE39B323F2A3200022B135 /* LogInOrRegisterInteractor.swift in Sources */,
+				2BFE39FE23F2AD9F0022B135 /* LogInWorker.swift in Sources */,
+				2BEB802F23F15D7900D6E15F /* Constants.swift in Sources */,
+				2B2BB15223F7DEAD00DB3BCA /* AddContactsWorker.swift in Sources */,
+				2B3126D22409A7D0008991E3 /* ContactMessageCell.swift in Sources */,
+				2BFE39CF23F2AD2A0022B135 /* ContactsInteractor.swift in Sources */,
+				2B3126CB24091919008991E3 /* ChatLogInteractor.swift in Sources */,
+				2BFE39B423F2A3200022B135 /* LogInOrRegisterWorker.swift in Sources */,
+				2BFE39B523F2A3200022B135 /* LogInOrRegisterDataStore.swift in Sources */,
+				2B3126CE24091919008991E3 /* ChatLogRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +930,7 @@
 		};
 		2BEB802623F1465800D6E15F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64BF51096C9794FA9D79C639 /* Pods-Game'OChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +949,7 @@
 		};
 		2BEB802723F1465800D6E15F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24C62D13AE96BA1F1096F4F8 /* Pods-Game'OChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
