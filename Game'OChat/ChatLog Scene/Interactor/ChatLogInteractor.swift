@@ -9,17 +9,18 @@
 import UIKit
 
 protocol ChatLogInteractorInput {
-    func sendMessage(request: ChatLog.Message.Save.Request)
+    func sendMessage(request: ChatLog.Message.SaveText.Request)
+    func sendImage(request: ChatLog.Message.SaveImage.Request)
     func loadChat(request: ChatLog.Message.Load.Request)
     func addContactDetail(request: ChatLog.NewContact.Request)
-
+    
 }
 
 protocol ChatLogInteractorOutput {
-    func presentMessage(response: ChatLog.Message.Save.Response)
+    
     func presentChat(response: ChatLog.Message.Load.Response)
     func presentContactDetail(response: ChatLog.NewContact.Response)
-
+    
 }
 
 class ChatLogInteractor: ChatLogInteractorInput {
@@ -33,12 +34,16 @@ class ChatLogInteractor: ChatLogInteractorInput {
         self.worker = worker
     }
     
-    func sendMessage(request: ChatLog.Message.Save.Request) {
+    func sendMessage(request: ChatLog.Message.SaveText.Request) {
         
-        let response = ChatLog.Message.Save.Response()
         guard let userID = dataStore.selectedNewContact?.uniqueUserID else { return }
-        worker.saveMessage(message: request.messgae, toUserID: userID)
-        output.presentMessage(response: response)
+        worker.saveMessage(textMessage: request.messgae, toUserID: userID)
+    }
+    
+    func sendImage(request: ChatLog.Message.SaveImage.Request){
+        
+        guard let userID = dataStore.selectedNewContact?.uniqueUserID else { return }
+        worker.saveImage(image: request.image, toUserID: userID)
     }
     
     func loadChat(request: ChatLog.Message.Load.Request){

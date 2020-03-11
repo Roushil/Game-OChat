@@ -407,7 +407,7 @@
                                 <rect key="frame" x="0.0" y="806.33333333333337" width="414" height="89.666666666666629"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7E-4T-KSm">
-                                        <rect key="frame" x="13" y="15" width="338" height="34"/>
+                                        <rect key="frame" x="57" y="15" width="300" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -422,15 +422,31 @@
                                             <action selector="sendMessage:" destination="1Z1-ri-gac" eventType="touchUpInside" id="Zwo-J1-vSK"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XeQ-8s-q0E">
+                                        <rect key="frame" x="13" y="15" width="34" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="DQE-jh-uU5"/>
+                                            <constraint firstAttribute="width" constant="34" id="LHl-d7-UQr"/>
+                                        </constraints>
+                                        <state key="normal" image="photo" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="light"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendImageMesssageWith_sender:" destination="1Z1-ri-gac" eventType="touchUpInside" id="m4H-1z-wfk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="C7E-4T-KSm" firstAttribute="leading" secondItem="A4F-bt-bCb" secondAttribute="leading" constant="13" id="2rZ-w1-JOK"/>
+                                    <constraint firstItem="XeQ-8s-q0E" firstAttribute="leading" secondItem="A4F-bt-bCb" secondAttribute="leading" constant="13" id="8e2-Zy-4E9"/>
                                     <constraint firstItem="C7E-4T-KSm" firstAttribute="top" secondItem="A4F-bt-bCb" secondAttribute="top" constant="15" id="AFt-Af-82q"/>
-                                    <constraint firstItem="gEh-HF-9G4" firstAttribute="top" secondItem="C7E-4T-KSm" secondAttribute="top" id="FVw-JF-1Bt"/>
-                                    <constraint firstItem="gEh-HF-9G4" firstAttribute="bottom" secondItem="C7E-4T-KSm" secondAttribute="bottom" id="RrB-Bk-cq2"/>
-                                    <constraint firstItem="gEh-HF-9G4" firstAttribute="leading" secondItem="C7E-4T-KSm" secondAttribute="trailing" constant="16" id="XxZ-xr-YT2"/>
+                                    <constraint firstItem="gEh-HF-9G4" firstAttribute="bottom" secondItem="XeQ-8s-q0E" secondAttribute="bottom" id="IVo-zZ-4x8"/>
+                                    <constraint firstItem="gEh-HF-9G4" firstAttribute="leading" secondItem="C7E-4T-KSm" secondAttribute="trailing" constant="10" id="XxZ-xr-YT2"/>
+                                    <constraint firstItem="C7E-4T-KSm" firstAttribute="top" secondItem="XeQ-8s-q0E" secondAttribute="top" id="eiM-rS-YCk"/>
+                                    <constraint firstItem="gEh-HF-9G4" firstAttribute="top" secondItem="XeQ-8s-q0E" secondAttribute="top" id="jGW-ua-hZ3"/>
                                     <constraint firstAttribute="trailing" secondItem="gEh-HF-9G4" secondAttribute="trailing" constant="13" id="kfg-ZF-TZy"/>
+                                    <constraint firstItem="C7E-4T-KSm" firstAttribute="leading" secondItem="XeQ-8s-q0E" secondAttribute="trailing" constant="10" id="qGC-ye-161"/>
+                                    <constraint firstItem="C7E-4T-KSm" firstAttribute="bottom" secondItem="XeQ-8s-q0E" secondAttribute="bottom" id="zYC-GC-7TT"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FID-QO-zR3">
@@ -572,6 +588,7 @@
     <resources>
         <image name="blank_profile" width="1280" height="1280"/>
         <image name="paperplane.fill" catalog="system" width="64" height="60"/>
+        <image name="photo" catalog="system" width="64" height="46"/>
         <image name="square.and.pencil" catalog="system" width="64" height="58"/>
         <namedColor name="BrandBlue">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>

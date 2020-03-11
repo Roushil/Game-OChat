@@ -24,13 +24,13 @@ class ChatLogWorker {
     
     var delegate: LoadMessage?
     
-    func saveMessage(message: String, toUserID: String) {
+    func saveMessage(textMessage: String, toUserID: String) {
         
         guard let fromID = Auth.auth().currentUser?.uid else { return }
         let timeStamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
         let ref = K.Reference.database.child("messages")
         let childRef = ref.childByAutoId()
-        let values = ["text": message, "toID": toUserID, "fromID": fromID, "timeStamp": timeStamp] as [String : Any]
+        let values = ["text": textMessage, "toID": toUserID, "fromID": fromID, "timeStamp": timeStamp] as [String : Any]
         childRef.updateChildValues(values) { (error, reference) in
             
             if error != nil {
@@ -51,7 +51,7 @@ class ChatLogWorker {
     func loadMessages(userDetail: AddContactsViewModel?){
         
         var messages: [MessageModel] = []
- 
+        
         guard let currentUserId = Auth.auth().currentUser?.uid, let partnerId = userDetail?.uniqueUserID else { return }
         K.Reference.database.child("usrmsgs").child(currentUserId).child(partnerId).observe(.childAdded, with: { (snapShot) in
             
@@ -70,4 +70,45 @@ class ChatLogWorker {
         }, withCancel: nil)
     }
     
+    
+    func saveImage(image: UIImage, toUserID: String){
+        
+        let imageName = NSUUID().uuidString
+        let storageReference = Storage.storage().reference().child("message_images/\(imageName).jpg")
+        guard let msgImage = image.jpegData(compressionQuality: 0.2) else { return }
+        
+        storageReference.putData(msgImage, metadata: nil) { (metaData, error) in
+            
+            if let err = error{
+                print(err.localizedDescription)
+            }
+            else{
+                
+                storageReference.downloadURL { (url, error) in
+                    
+                    guard let downloadURL = url?.absoluteString, let fromID = Auth.auth().currentUser?.uid  else { return }
+                    
+                    let timeStamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
+                    let ref = K.Reference.database.child("messages")
+                    let childRef = ref.childByAutoId()
+                    
+                    let values = ["imageURL": downloadURL, "toID": toUserID, "fromID": fromID, "timeStamp": timeStamp] as [String : Any]
+                    childRef.updateChildValues(values) { (error, reference) in
+                        
+                        if let err = error {
+                            print(err.localizedDescription)
+                            return
+                        }
+                    
+                        guard let messageId = childRef.key else { return }
+                        let userMessagesRef = K.Reference.database.child("usrmsgs").child(fromID).child(toUserID).child(messageId)
+                        userMessagesRef.setValue(1 as AnyObject)
+                        
+                        let recepientMessageRef = K.Reference.database.child("usrmsgs").child(toUserID).child(fromID).child(messageId)
+                        recepientMessageRef.setValue(1 as AnyObject)
+                    }
+                }
+            }
+        }
+    }
 }

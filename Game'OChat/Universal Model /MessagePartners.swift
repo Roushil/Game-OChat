@@ -24,6 +24,7 @@ class MessageModel:NSObject{
     @objc var text: String?
     @objc var timeStamp: NSNumber?
     @objc var toID: String?
+    @objc var imageURL: String?
 }
 
 

@@ -14,13 +14,13 @@ import UIKit
 import Firebase
 
 protocol ChatLogViewControllerInput: class {
-    func displayMessage(viewModel: ChatLog.Message.Save.ViewModel)
     func displayChat(viewModel: ChatLog.Message.Load.ViewModel)
     func displayContactDetail(viewModel: ChatLog.NewContact.ViewModel)
 }
 
 protocol ChatLogViewControllerOutput {
-    func sendMessage(request: ChatLog.Message.Save.Request)
+    func sendMessage(request: ChatLog.Message.SaveText.Request)
+    func sendImage(request: ChatLog.Message.SaveImage.Request)
     func loadChat(request: ChatLog.Message.Load.Request)
     func addContactDetail(request: ChatLog.NewContact.Request)
 }
@@ -84,16 +84,18 @@ class ChatLogViewController: UIViewController {
     @IBAction func sendMessage(_ sender: Any) {
         
         guard let msg = messageTextField.text else { return }
-        output.sendMessage(request: ChatLog.Message.Save.Request(messgae: msg))
+        output.sendMessage(request: ChatLog.Message.SaveText.Request(messgae: msg))
         messageTextField.text = ""
+    }
+    
+    @IBAction func sendImageMesssage(_sender: Any){
+        
+        sendImage()
     }
 }
 
 extension ChatLogViewController: ChatLogViewControllerInput {
-    
-    func displayMessage(viewModel: ChatLog.Message.Save.ViewModel) {
-        
-    }
+
     
     func displayContactDetail(viewModel: ChatLog.NewContact.ViewModel){
         
@@ -103,7 +105,7 @@ extension ChatLogViewController: ChatLogViewControllerInput {
     func displayChat(viewModel: ChatLog.Message.Load.ViewModel){
         
         self.viewModel = viewModel
-
+        
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadtable), userInfo: nil, repeats: false)
     }
@@ -127,10 +129,12 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         let cell = chatsCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatCell", for: indexPath) as! ChatCollectionViewCell
         guard let messageModel = viewModel?.message[indexPath.row] else { return cell}
-        cell.textView.text = messageModel.text
-        configureChats(cell: cell, message: messageModel, chatPartner: viewModel?.chatPartner)
+        configureCell(cell: cell, message: messageModel, chatPartner: viewModel?.chatPartner)
         
-        cell.bubbleWidthAnchor?.constant = estimateFrameForMessage(text: messageModel.text!).width + 32
+        if let text = messageModel.text{
+         
+            cell.bubbleWidthAnchor?.constant = estimateFrameForMessage(text: text).width + 32
+        }
         
         return cell
     }
@@ -157,10 +161,22 @@ extension ChatLogViewController{
         
     }
     
-    private func configureChats(cell: ChatCollectionViewCell, message: MessageModel, chatPartner: AddContactsViewModel?){
+    private func configureCell(cell: ChatCollectionViewCell, message: MessageModel, chatPartner: AddContactsViewModel?){
         
+        cell.textView.text = message.text
+
         guard let partnerImage = chatPartner?.profileImage else { return }
         cell.profileImageView.loadImageUsingCache(image: partnerImage)
+        
+        if let messageUrl = message.imageURL{
+            
+            cell.messageImageView.loadImageUsingCache(image: messageUrl)
+            cell.messageImageView.isHidden = false
+            cell.bubbleView.backgroundColor = .clear
+        }
+        else{
+            cell.messageImageView.isHidden = true
+        }
         
         if message.fromID == Auth.auth().currentUser?.uid{
             
@@ -179,5 +195,33 @@ extension ChatLogViewController{
             cell.bubbleLeftAnchor?.isActive = true
         }
     }
+}
 
+extension ChatLogViewController:  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    private func sendImage(){
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
+        var selectedImage: UIImage?
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            selectedImage = editedImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            selectedImage = originalImage
+        }
+        
+        if let selectImage = selectedImage{
+            
+            output.sendImage(request: ChatLog.Message.SaveImage.Request(image: selectImage))
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
 }

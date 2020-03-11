@@ -12,7 +12,7 @@ enum ChatLog {
     
     enum Message {
         
-        enum Save{
+        enum SaveText{
             
             struct Request {
                 
@@ -27,6 +27,23 @@ enum ChatLog {
                 
             }
         }
+        
+        enum SaveImage{
+            
+            struct Request {
+                
+                var image: UIImage
+            }
+            
+            struct Response {
+                
+            }
+            
+            struct ViewModel {
+                
+            }
+        }
+
         
         enum Load{
              
