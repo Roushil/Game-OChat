@@ -81,8 +81,7 @@ class ContactsWorker {
                     
                     guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
                     
-                    let message = MessageModel()
-                    message.setValuesForKeys(dictionary)
+                    let message = MessageModel(dictionary: dictionary)
                     
                     guard let chatPartnerID = messagePartner.getPartnerID(messageDetail: message) else {return}
                     messageDictionary[chatPartnerID] = message

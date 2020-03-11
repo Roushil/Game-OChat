@@ -95,7 +95,7 @@ class ChatLogViewController: UIViewController {
 }
 
 extension ChatLogViewController: ChatLogViewControllerInput {
-
+    
     
     func displayContactDetail(viewModel: ChatLog.NewContact.ViewModel){
         
@@ -132,8 +132,10 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
         configureCell(cell: cell, message: messageModel, chatPartner: viewModel?.chatPartner)
         
         if let text = messageModel.text{
-         
             cell.bubbleWidthAnchor?.constant = estimateFrameForMessage(text: text).width + 32
+        }
+        else if messageModel.imageURL != nil{
+            cell.bubbleWidthAnchor?.constant = 200
         }
         
         return cell
@@ -142,13 +144,18 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         var height: CGFloat = 80
-        if let text = viewModel?.message[indexPath.row].text{
+ 
+        if let text = viewModel?.message[indexPath.item].text{
             height = estimateFrameForMessage(text: text).height + 20
+        }
+        else {
+            height = 300
         }
         return CGSize(width: view.frame.width , height: height)
     }
     
 }
+
 
 
 extension ChatLogViewController{
@@ -164,7 +171,7 @@ extension ChatLogViewController{
     private func configureCell(cell: ChatCollectionViewCell, message: MessageModel, chatPartner: AddContactsViewModel?){
         
         cell.textView.text = message.text
-
+        
         guard let partnerImage = chatPartner?.profileImage else { return }
         cell.profileImageView.loadImageUsingCache(image: partnerImage)
         
@@ -225,3 +232,4 @@ extension ChatLogViewController:  UIImagePickerControllerDelegate, UINavigationC
         dismiss(animated: true, completion: nil)
     }
 }
+

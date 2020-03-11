@@ -26,51 +26,10 @@ class ChatLogWorker {
     
     func saveMessage(textMessage: String, toUserID: String) {
         
-        guard let fromID = Auth.auth().currentUser?.uid else { return }
-        let timeStamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
-        let ref = K.Reference.database.child("messages")
-        let childRef = ref.childByAutoId()
-        let values = ["text": textMessage, "toID": toUserID, "fromID": fromID, "timeStamp": timeStamp] as [String : Any]
-        childRef.updateChildValues(values) { (error, reference) in
-            
-            if error != nil {
-                print(error!)
-                return
-            }
-            
-            guard let messageId = childRef.key else { return }
-            let userMessagesRef = K.Reference.database.child("usrmsgs").child(fromID).child(toUserID).child(messageId)
-            userMessagesRef.setValue(1 as AnyObject)
-            
-            let recepientMessageRef = K.Reference.database.child("usrmsgs").child(toUserID).child(fromID).child(messageId)
-            recepientMessageRef.setValue(1 as AnyObject)
-        }
+        let properties: [String:Any] =  ["text": textMessage]
+        sendMessageWithProperties(properties: properties as [String : AnyObject], toUserID: toUserID)
     }
-    
-    
-    func loadMessages(userDetail: AddContactsViewModel?){
-        
-        var messages: [MessageModel] = []
-        
-        guard let currentUserId = Auth.auth().currentUser?.uid, let partnerId = userDetail?.uniqueUserID else { return }
-        K.Reference.database.child("usrmsgs").child(currentUserId).child(partnerId).observe(.childAdded, with: { (snapShot) in
-            
-            let messageId = snapShot.key
-            K.Reference.database.child("messages").child(messageId).observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
-                let message = MessageModel()
-                message.setValuesForKeys(dictionary)
-                
-                messages.append(message)
-                self.delegate?.passMessageDetails(message: messages, userDetail: userDetail)
-                
-            }, withCancel: nil)
-            
-        }, withCancel: nil)
-    }
-    
-    
+
     func saveImage(image: UIImage, toUserID: String){
         
         let imageName = NSUUID().uuidString
@@ -85,30 +44,61 @@ class ChatLogWorker {
             else{
                 
                 storageReference.downloadURL { (url, error) in
-                    
-                    guard let downloadURL = url?.absoluteString, let fromID = Auth.auth().currentUser?.uid  else { return }
-                    
-                    let timeStamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
-                    let ref = K.Reference.database.child("messages")
-                    let childRef = ref.childByAutoId()
-                    
-                    let values = ["imageURL": downloadURL, "toID": toUserID, "fromID": fromID, "timeStamp": timeStamp] as [String : Any]
-                    childRef.updateChildValues(values) { (error, reference) in
-                        
-                        if let err = error {
-                            print(err.localizedDescription)
-                            return
-                        }
-                    
-                        guard let messageId = childRef.key else { return }
-                        let userMessagesRef = K.Reference.database.child("usrmsgs").child(fromID).child(toUserID).child(messageId)
-                        userMessagesRef.setValue(1 as AnyObject)
-                        
-                        let recepientMessageRef = K.Reference.database.child("usrmsgs").child(toUserID).child(fromID).child(messageId)
-                        recepientMessageRef.setValue(1 as AnyObject)
-                    }
+                
+                    guard let downloadURL = url?.absoluteString else { return }
+                    let properties = ["imageURL": downloadURL, "imageWidth": image.size.width, "imageHeight": image.size.height] as [String : Any]
+                    self.sendMessageWithProperties(properties: properties as [String : AnyObject], toUserID: toUserID)
                 }
             }
+        }
+    }
+    
+    func loadMessages(userDetail: AddContactsViewModel?){
+        
+        var messages: [MessageModel] = []
+        
+        guard let currentUserId = Auth.auth().currentUser?.uid, let partnerId = userDetail?.uniqueUserID else { return }
+        K.Reference.database.child("usrmsgs").child(currentUserId).child(partnerId).observe(.childAdded, with: { (snapShot) in
+            
+            let messageId = snapShot.key
+            K.Reference.database.child("messages").child(messageId).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
+                let message = MessageModel(dictionary: dictionary)
+                
+                messages.append(message)
+                self.delegate?.passMessageDetails(message: messages, userDetail: userDetail)
+                
+            }, withCancel: nil)
+            
+        }, withCancel: nil)
+    }
+}
+
+extension ChatLogWorker{
+    
+    private func sendMessageWithProperties(properties: [String: AnyObject], toUserID: String){
+        
+        guard let fromID = Auth.auth().currentUser?.uid  else { return }
+        let timeStamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
+        let ref = K.Reference.database.child("messages")
+        let childRef = ref.childByAutoId()
+        
+        var values = ["toID": toUserID, "fromID": fromID, "timeStamp": timeStamp] as [String : Any]
+        properties.forEach({values[$0] = $1})
+        
+        childRef.updateChildValues(values) { (error, reference) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            guard let messageId = childRef.key else { return }
+            let userMessagesRef = K.Reference.database.child("usrmsgs").child(fromID).child(toUserID).child(messageId)
+            userMessagesRef.setValue(1 as AnyObject)
+            
+            let recepientMessageRef = K.Reference.database.child("usrmsgs").child(toUserID).child(fromID).child(messageId)
+            recepientMessageRef.setValue(1 as AnyObject)
         }
     }
 }
