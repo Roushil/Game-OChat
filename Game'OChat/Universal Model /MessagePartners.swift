@@ -25,8 +25,6 @@ class MessageModel:NSObject{
     @objc var timeStamp: NSNumber?
     @objc var toID: String?
     @objc var imageURL: String?
-    @objc var imageWidth: NSNumber?
-    @objc var imageHeight: NSNumber?
     
      init(dictionary: [String: AnyObject]) {
         super.init()
@@ -36,8 +34,7 @@ class MessageModel:NSObject{
         timeStamp = dictionary["timeStamp"] as? NSNumber
         toID = dictionary["toID"] as? String
         imageURL = dictionary["imageURL"] as? String
-        imageWidth = dictionary["imageWidth"] as? NSNumber
-        imageHeight = dictionary["imageHeight"] as? NSNumber
+
     }
     
 }

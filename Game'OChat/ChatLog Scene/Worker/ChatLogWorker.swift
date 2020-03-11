@@ -46,7 +46,7 @@ class ChatLogWorker {
                 storageReference.downloadURL { (url, error) in
                 
                     guard let downloadURL = url?.absoluteString else { return }
-                    let properties = ["imageURL": downloadURL, "imageWidth": image.size.width, "imageHeight": image.size.height] as [String : Any]
+                    let properties = ["imageURL": downloadURL] as [String : Any]
                     self.sendMessageWithProperties(properties: properties as [String : AnyObject], toUserID: toUserID)
                 }
             }

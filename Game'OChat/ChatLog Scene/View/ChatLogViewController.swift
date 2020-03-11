@@ -60,6 +60,9 @@ class ChatLogViewController: UIViewController {
     var viewModel: ChatLog.Message.Load.ViewModel?
     let messagePartners = MessagePartners()
     var timer: Timer?
+    var startingFrame: CGRect?
+    var blackBackgroundView: UIView?
+    var startingImageView: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,16 +131,20 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = chatsCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatCell", for: indexPath) as! ChatCollectionViewCell
+        cell.chatLogController = self
+        
         guard let messageModel = viewModel?.message[indexPath.row] else { return cell}
         configureCell(cell: cell, message: messageModel, chatPartner: viewModel?.chatPartner)
         
         if let text = messageModel.text{
             cell.bubbleWidthAnchor?.constant = estimateFrameForMessage(text: text).width + 32
+            cell.textView.isHidden = false
         }
         else if messageModel.imageURL != nil{
             cell.bubbleWidthAnchor?.constant = 200
+            cell.bubbleView.backgroundColor = .clear
+            cell.textView.isHidden = true
         }
-        
         return cell
     }
     
@@ -148,7 +155,7 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
         if let text = viewModel?.message[indexPath.item].text{
             height = estimateFrameForMessage(text: text).height + 20
         }
-        else {
+        else if viewModel?.message[indexPath.row].imageURL != nil{
             height = 300
         }
         return CGSize(width: view.frame.width , height: height)
@@ -177,9 +184,10 @@ extension ChatLogViewController{
         
         if let messageUrl = message.imageURL{
             
-            cell.messageImageView.loadImageUsingCache(image: messageUrl)
-            cell.messageImageView.isHidden = false
             cell.bubbleView.backgroundColor = .clear
+            cell.messageImageView.isHidden = false
+            cell.messageImageView.loadImageUsingCache(image: messageUrl)
+        
         }
         else{
             cell.messageImageView.isHidden = true
@@ -200,6 +208,52 @@ extension ChatLogViewController{
             cell.profileImageView.isHidden = false
             cell.bubbleRightAnchor?.isActive = false
             cell.bubbleLeftAnchor?.isActive = true
+        }
+    }
+    
+    func performZoomIn(imageView: UIImageView){
+
+        self.startingImageView = imageView
+        startingFrame = imageView.superview?.convert(imageView.frame, to: nil)
+        
+        let zoomingImageView = UIImageView(frame: startingFrame!)
+        zoomingImageView.backgroundColor = .red
+        zoomingImageView.image = imageView.image
+        zoomingImageView.isUserInteractionEnabled = true
+        zoomingImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(zoomOutfromImage)))
+          
+        if let keyWindow = UIApplication.shared.windows.first(where: {$0.isKeyWindow}){
+            
+            blackBackgroundView = UIView(frame: keyWindow.frame)
+            blackBackgroundView?.backgroundColor = .black
+            blackBackgroundView?.alpha = 0
+            keyWindow.addSubview(blackBackgroundView!)
+            keyWindow.addSubview(zoomingImageView)
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                
+                self.blackBackgroundView?.alpha = 1
+                   zoomingImageView.frame = CGRect(x: 0, y: 0, width: keyWindow.frame.width, height: self.startingFrame!.height)
+                   zoomingImageView.center = keyWindow.center
+                
+            },completion: nil)
+        }
+
+    }
+    
+    @objc func zoomOutfromImage(tapGesture: UITapGestureRecognizer){
+        
+        if let zoomOutImageView = tapGesture.view{
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                
+                zoomOutImageView.frame = self.startingFrame!
+                self.blackBackgroundView?.alpha = 0
+                
+            }) { (completed) in
+                
+                zoomOutImageView.removeFromSuperview()
+            }
         }
     }
 }
@@ -231,5 +285,6 @@ extension ChatLogViewController:  UIImagePickerControllerDelegate, UINavigationC
         
         dismiss(animated: true, completion: nil)
     }
+    
 }
 

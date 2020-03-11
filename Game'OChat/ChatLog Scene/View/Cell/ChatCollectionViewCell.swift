@@ -11,6 +11,8 @@ import UIKit
 
 class ChatCollectionViewCell: UICollectionViewCell {
     
+    var chatLogController: ChatLogViewController?
+    
     var bubbleWidthAnchor: NSLayoutConstraint?
     var bubbleRightAnchor:NSLayoutConstraint?
     var bubbleLeftAnchor: NSLayoutConstraint?
@@ -22,7 +24,7 @@ class ChatCollectionViewCell: UICollectionViewCell {
         
         let tv = UITextView()
         tv.font = UIFont.systemFont(ofSize: 16)
-        tv.isUserInteractionEnabled = false
+        tv.isEditable = false
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = .clear
         tv.textColor = .white
@@ -49,13 +51,15 @@ class ChatCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    let messageImageView: UIImageView = {
+    lazy var messageImageView: UIImageView = {
         
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 16
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(zoomImageOnTap)))
         return imageView
     }()
     
@@ -98,5 +102,11 @@ class ChatCollectionViewCell: UICollectionViewCell {
         
     }
     
-    
+    @objc func zoomImageOnTap(tapGesture: UITapGestureRecognizer){
+        
+        if  let imageView = tapGesture.view as? UIImageView{
+            
+            self.chatLogController?.performZoomIn(imageView: imageView)
+        }
+    }
 }
