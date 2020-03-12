@@ -64,6 +64,21 @@ enum Contacts {
             var messageViewModel: [MessageModel]
           }
       }
+    
+    enum Delete {
+        
+        struct Request {
+            var rowIndex: Int
+        }
+        
+        struct Response {
+            var rowIndex: Int
+        }
+        
+        struct ViewModel {
+            var rowIndex: Int
+        }
+    }
 }
 
 

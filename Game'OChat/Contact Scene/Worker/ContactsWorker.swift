@@ -23,10 +23,20 @@ protocol Messages{
     func passMessage(messageModel: [MessageModel])
 }
 
+protocol ContactDelete{
+    
+    func deleteContact(rowIndex: Int)
+}
+
 class ContactsWorker {
     
     var logDelegate: HandleLogout?
     var messageDelegate: Messages?
+    var deleteMessageDelegate: ContactDelete?
+    
+    var messages: [MessageModel] = []
+    let messagePartner = MessagePartners()
+    var messageDictionary = [String: MessageModel]()
     
     
     func checkLogout() {
@@ -66,10 +76,6 @@ class ContactsWorker {
     
     func loadUserMessages(){
         
-        var messages: [MessageModel] = []
-        let messagePartner = MessagePartners()
-        var messageDictionary = [String: MessageModel]()
-        
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
         K.Reference.database.child("usrmsgs").child(currentUserId).observe(.childAdded, with: { (snapShot) in
             
@@ -83,23 +89,39 @@ class ContactsWorker {
                     
                     let message = MessageModel(dictionary: dictionary)
                     
-                    guard let chatPartnerID = messagePartner.getPartnerID(messageDetail: message) else {return}
-                    messageDictionary[chatPartnerID] = message
-                    messages = Array(messageDictionary.values)
-                    messages.sort(by: { (message1, message2) -> Bool in
+                    guard let chatPartnerID = self.messagePartner.getPartnerID(messageDetail: message) else {return}
+                    self.messageDictionary[chatPartnerID] = message
+                    self.messages = Array(self.messageDictionary.values)
+                    self.messages.sort(by: { (message1, message2) -> Bool in
                         
                         return message1.timeStamp!.int32Value > message2.timeStamp!.int32Value
                     })
                     
-                    self.messageDelegate?.passMessage(messageModel: messages)
+                    self.messageDelegate?.passMessage(messageModel: self.messages)
                     
                 }, withCancel: nil)
                 
             }, withCancel: nil)
             
-            
         }, withCancel: nil)
         
+    }
+    
+    
+    func deleteUserMessages(rowIndex: Int){
+        
+        let message = self.messages[rowIndex]
+        guard let currentUserId = Auth.auth().currentUser?.uid, let chatPartnerID = self.messagePartner.getPartnerID(messageDetail: message) else { return }
+        
+        K.Reference.database.child("usrmsgs").child(currentUserId).child(chatPartnerID).removeValue { (error, reference) in
+            
+            if let err = error{
+                print(err.localizedDescription)
+            }
+            
+            self.messageDictionary.removeValue(forKey: chatPartnerID)
+            self.deleteMessageDelegate?.deleteContact(rowIndex: rowIndex)
+        }
     }
 }
 

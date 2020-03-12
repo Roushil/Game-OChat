@@ -11,12 +11,14 @@ protocol ContactsPresenterInput {
     func presentLogOut(response: Contacts.Logout.Response)
     func presentData(response: Contacts.Fetch.Response)
     func presentMessages(response: Contacts.Message.Response)
+    func presentDeletedMessage(response: Contacts.Delete.Response)
 }
 
 protocol ContactsPresenterOutput: class {
     func displayLogOut(viewModel: Contacts.Logout.ViewModel)
     func displayData(viewModel: Contacts.Fetch.ViewModel)
     func displayMessages(viewModel: Contacts.Message.ViewModel)
+    func displayDeletedMessage(viewModel: Contacts.Delete.ViewModel)
 }
 
 class ContactsPresenter: ContactsPresenterInput {
@@ -38,5 +40,10 @@ class ContactsPresenter: ContactsPresenterInput {
     func presentMessages(response: Contacts.Message.Response){
         
         output.displayMessages(viewModel: Contacts.Message.ViewModel(messageViewModel: response.messageModel))
+    }
+    
+    func presentDeletedMessage(response: Contacts.Delete.Response){
+        
+        output.displayDeletedMessage(viewModel: Contacts.Delete.ViewModel(rowIndex: response.rowIndex))
     }
 }

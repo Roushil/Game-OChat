@@ -12,13 +12,14 @@ protocol ContactsInteractorInput {
     func checkLogFetch(request: Contacts.Check.Request)
     func fetchLogout(request: Contacts.Logout.Request)
     func loadMessages(request: Contacts.Message.Request)
+    func deleteMessage(request: Contacts.Delete.Request)
 }
 
 protocol ContactsInteractorOutput {
-    
     func presentLogOut(response: Contacts.Logout.Response)
     func presentData(response: Contacts.Fetch.Response)
     func presentMessages(response: Contacts.Message.Response)
+    func presentDeletedMessage(response: Contacts.Delete.Response)
 }
 
 class ContactsInteractor: ContactsInteractorInput {
@@ -49,10 +50,15 @@ class ContactsInteractor: ContactsInteractorInput {
         worker.messageDelegate = self
         worker.loadUserMessages()
     }
+    
+    func deleteMessage(request: Contacts.Delete.Request){
+        
+        worker.deleteMessageDelegate = self
+        worker.deleteUserMessages(rowIndex: request.rowIndex)
+    }
 }
 
-extension ContactsInteractor: HandleLogout & Messages{
-
+extension ContactsInteractor: HandleLogout & Messages & ContactDelete{
 
     func checkLog(isLogout: Bool, userData: [String : AnyObject?]) {
         
@@ -71,5 +77,11 @@ extension ContactsInteractor: HandleLogout & Messages{
         
     }
     
+    func deleteContact(rowIndex: Int) {
+        
+        output.presentDeletedMessage(response: Contacts.Delete.Response(rowIndex: rowIndex))
+    }
+    
+
 }
 

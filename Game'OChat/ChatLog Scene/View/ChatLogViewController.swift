@@ -96,6 +96,7 @@ class ChatLogViewController: UIViewController {
         
         sendImage()
     }
+    
 }
 
 extension ChatLogViewController: ChatLogViewControllerInput {

@@ -16,12 +16,14 @@ protocol ContactsViewControllerInput: class {
     func displayLogOut(viewModel: Contacts.Logout.ViewModel)
     func displayData(viewModel: Contacts.Fetch.ViewModel)
     func displayMessages(viewModel: Contacts.Message.ViewModel)
+    func displayDeletedMessage(viewModel: Contacts.Delete.ViewModel)
 }
 
 protocol ContactsViewControllerOutput {
     func checkLogFetch(request: Contacts.Check.Request)
     func fetchLogout(request: Contacts.Logout.Request)
     func loadMessages(request: Contacts.Message.Request)
+    func deleteMessage(request: Contacts.Delete.Request)
 }
 
 class ContactsViewController: UIViewController {
@@ -68,8 +70,9 @@ class ContactsViewController: UIViewController {
         
         checkLog()
         loadMessages()
+        contactMessageTableView.allowsMultipleSelectionDuringEditing = true
     }
-    
+        
     fileprivate func checkLog() {
         
         output.checkLogFetch(request: Contacts.Check.Request())
@@ -106,7 +109,7 @@ extension ContactsViewController: ContactsViewControllerInput {
     func displayMessages(viewModel: Contacts.Message.ViewModel){
         
         viewMessages = viewModel
-
+        
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadtable), userInfo: nil, repeats: false)
         
@@ -118,6 +121,12 @@ extension ContactsViewController: ContactsViewControllerInput {
             
             self.contactMessageTableView.reloadData()
         }
+    }
+    
+    func displayDeletedMessage(viewModel: Contacts.Delete.ViewModel){
+        
+        self.viewMessages?.messageViewModel.remove(at: viewModel.rowIndex)
+        self.contactMessageTableView.reloadData()
     }
 }
 
@@ -141,6 +150,15 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate{
         
         guard let contactData = viewMessages?.messageViewModel[indexPath.row] else { return }
         goToChatLog(contactData: contactData)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        output.deleteMessage(request: Contacts.Delete.Request(rowIndex: indexPath.row))
     }
 }
 
