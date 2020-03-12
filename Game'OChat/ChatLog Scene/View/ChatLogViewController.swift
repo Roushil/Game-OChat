@@ -60,6 +60,7 @@ class ChatLogViewController: UIViewController {
     var viewModel: ChatLog.Message.Load.ViewModel?
     let messagePartners = MessagePartners()
     var timer: Timer?
+    
     var startingFrame: CGRect?
     var blackBackgroundView: UIView?
     var startingImageView: UIImageView?
