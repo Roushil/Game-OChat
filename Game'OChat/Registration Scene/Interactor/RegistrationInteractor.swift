@@ -13,7 +13,8 @@ protocol RegistrationInteractorInput {
 }
 
 protocol RegistrationInteractorOutput {
-    func present(response: Registration.Fetch.Response)
+    func presentAlertError(response: Registration.AlertMessage.Error.Response)
+    func presentAlertSuccess(response: Registration.AlertMessage.Success.Response)
 }
 
 class RegistrationInteractor: RegistrationInteractorInput {
@@ -29,9 +30,23 @@ class RegistrationInteractor: RegistrationInteractorInput {
     
     func fetch(request: Registration.Fetch.Request) {
         
-        let data = request.registerData
-        let vc = request.viewcontroller
-        worker.registerUserData(registerData: data, vc: vc)
-        output.present(response: Registration.Fetch.Response())
+        worker.errorAlertDelegate = self
+        worker.successAlertDelegate = self
+        worker.registerUserData(registerData: request.registerData, vc: request.viewcontroller)
     }
+}
+
+extension RegistrationInteractor: ErrorAlert & SuccessAlert{
+
+    func alertError(message: String) {
+        
+        output.presentAlertError(response: Registration.AlertMessage.Error.Response(message: message))
+    }
+    
+    func alertSuccess(message: String) {
+        
+        output.presentAlertSuccess(response: Registration.AlertMessage.Success.Response(message: message))
+    }
+    
+    
 }

@@ -20,6 +20,7 @@ protocol ContactsInteractorOutput {
     func presentData(response: Contacts.Fetch.Response)
     func presentMessages(response: Contacts.Message.Response)
     func presentDeletedMessage(response: Contacts.Delete.Response)
+    func presentAlert(response: Contacts.AlertMessage.Response)
 }
 
 class ContactsInteractor: ContactsInteractorInput {
@@ -36,29 +37,33 @@ class ContactsInteractor: ContactsInteractorInput {
     func checkLogFetch(request: Contacts.Check.Request) {
             
         worker.logDelegate = self
+        worker.alertDelegate = self
         worker.checkLogout()
     }
     
     func fetchLogout(request: Contacts.Logout.Request){
         
         worker.logDelegate = self
+        worker.alertDelegate = self
         worker.logOut()
     }
     
     func loadMessages(request: Contacts.Message.Request){
         
         worker.messageDelegate = self
+        worker.alertDelegate = self
         worker.loadUserMessages()
     }
     
     func deleteMessage(request: Contacts.Delete.Request){
         
         worker.deleteMessageDelegate = self
+        worker.alertDelegate = self
         worker.deleteUserMessages(rowIndex: request.rowIndex)
     }
 }
 
-extension ContactsInteractor: HandleLogout & Messages & ContactDelete{
+extension ContactsInteractor: HandleLogout & Messages & ContactDelete & ErrorAlert{
 
     func checkLog(isLogout: Bool, userData: [String : AnyObject?]) {
         
@@ -80,6 +85,11 @@ extension ContactsInteractor: HandleLogout & Messages & ContactDelete{
     func deleteContact(rowIndex: Int) {
         
         output.presentDeletedMessage(response: Contacts.Delete.Response(rowIndex: rowIndex))
+    }
+    
+    func alertError(message: String) {
+        
+        output.presentAlert(response: Contacts.AlertMessage.Response(message: message))
     }
     
 

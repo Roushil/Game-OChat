@@ -8,11 +8,13 @@
 import UIKit
 
 protocol LogInPresenterInput {
-    func present(response: LogIn.Fetch.Response)
+    func presentErrorAlert(response: LogIn.AlertMessage.Error.Response)
+    func presentSuccessAlert(response: LogIn.AlertMessage.Success.Response)
 }
 
 protocol LogInPresenterOutput: class {
-    func display(viewModel: LogIn.Fetch.ViewModel)
+    func displayErrorAlert(viewModel: LogIn.AlertMessage.Error.ViewModel)
+    func displaySuccessAlert(viewModel: LogIn.AlertMessage.Success.ViewModel)
 }
 
 class LogInPresenter: LogInPresenterInput {
@@ -21,9 +23,13 @@ class LogInPresenter: LogInPresenterInput {
     
     // MARK: Presentation logic
     
-    func present(response: LogIn.Fetch.Response) {
+    func presentErrorAlert(response: LogIn.AlertMessage.Error.Response){
         
-        let viewModel = LogIn.Fetch.ViewModel()
-        output.display(viewModel: viewModel)
+        output.displayErrorAlert(viewModel: LogIn.AlertMessage.Error.ViewModel(message: response.message))
+    }
+    
+    func presentSuccessAlert(response: LogIn.AlertMessage.Success.Response){
+        
+        output.displaySuccessAlert(viewModel: LogIn.AlertMessage.Success.ViewModel(message: response.message))
     }
 }

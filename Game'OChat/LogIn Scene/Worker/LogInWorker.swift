@@ -15,16 +15,19 @@ import Firebase
 
 class LogInWorker {
     
+    var alertErrorDelegate: ErrorAlert?
+    var alertSuccessDelegate: SuccessAlert?
+    
     func logInUser(userData: LoginData, vc: UIViewController) {
         
         Auth.auth().signIn(withEmail: userData.email, password: userData.password) { (user, error) in
             
-            if let error = error{
-                print(error.localizedDescription)
+            if let err = error{
+                self.alertErrorDelegate?.alertError(message: err.localizedDescription)
             }
             else{
                 
-                print("Successfully Logged In")
+                self.alertSuccessDelegate?.alertSuccess(message: "Successfully Logged In")
                 vc.dismiss(animated: true, completion: nil)
             }
         }

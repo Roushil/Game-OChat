@@ -9,7 +9,6 @@ import UIKit
 
 enum Registration {
     
-    // MARK:- Use cases
     
     enum Fetch {
         
@@ -23,6 +22,40 @@ enum Registration {
         }
         
         struct ViewModel {
+        }
+    }
+    
+    enum AlertMessage {
+        
+        
+        enum Error {
+            
+            struct Request {
+            }
+            
+            struct Response {
+                
+                var message: String
+            }
+            
+            struct ViewModel {
+                var message: String
+            }
+        }
+        
+        enum Success {
+            
+            struct Request {
+            }
+            
+            struct Response {
+                
+                var message: String
+            }
+            
+            struct ViewModel {
+                var message: String
+            }
         }
     }
 }

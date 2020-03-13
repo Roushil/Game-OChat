@@ -8,11 +8,13 @@
 import UIKit
 
 protocol RegistrationPresenterInput {
-    func present(response: Registration.Fetch.Response)
+    func presentAlertError(response: Registration.AlertMessage.Error.Response)
+    func presentAlertSuccess(response: Registration.AlertMessage.Success.Response)
 }
 
 protocol RegistrationPresenterOutput: class {
-    func display(viewModel: Registration.Fetch.ViewModel)
+    func displayAlertError(viewModel: Registration.AlertMessage.Error.ViewModel)
+    func displayAlertSuccess(viewModel: Registration.AlertMessage.Success.ViewModel)
 }
 
 class RegistrationPresenter: RegistrationPresenterInput {
@@ -21,9 +23,14 @@ class RegistrationPresenter: RegistrationPresenterInput {
     
     // MARK: Presentation logic
     
-    func present(response: Registration.Fetch.Response) {
+    
+    func presentAlertError(response: Registration.AlertMessage.Error.Response){
         
-        let viewModel = Registration.Fetch.ViewModel()
-        output.display(viewModel: viewModel)
+        output.displayAlertError(viewModel: Registration.AlertMessage.Error.ViewModel(message: response.message))
+    }
+    
+    func presentAlertSuccess(response: Registration.AlertMessage.Success.Response){
+        
+        output.displayAlertSuccess(viewModel: Registration.AlertMessage.Success.ViewModel(message: response.message))
     }
 }

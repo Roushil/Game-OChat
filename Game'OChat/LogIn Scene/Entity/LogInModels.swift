@@ -25,7 +25,40 @@ enum LogIn {
         struct ViewModel {
         }
     }
-}
+    
+    enum AlertMessage {
+        
+        
+        enum Error {
+            
+            struct Request {
+            }
+            
+            struct Response {
+                
+                var message: String
+            }
+            
+            struct ViewModel {
+                var message: String
+            }
+        }
+        
+        enum Success {
+            
+            struct Request {
+            }
+            
+            struct Response {
+                
+                var message: String
+            }
+            
+            struct ViewModel {
+                var message: String
+            }
+        }
+    }}
 
 struct LoginData{
     

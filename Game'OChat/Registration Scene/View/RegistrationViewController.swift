@@ -13,7 +13,8 @@
 import UIKit
 
 protocol RegistrationViewControllerInput: class {
-    func display(viewModel: Registration.Fetch.ViewModel)
+    func displayAlertError(viewModel: Registration.AlertMessage.Error.ViewModel)
+    func displayAlertSuccess(viewModel: Registration.AlertMessage.Success.ViewModel)
 }
 
 protocol RegistrationViewControllerOutput {
@@ -74,8 +75,21 @@ class RegistrationViewController: UIViewController {
 
 extension RegistrationViewController: RegistrationViewControllerInput {
     
-    func display(viewModel: Registration.Fetch.ViewModel) {
+    
+    func displayAlertError(viewModel: Registration.AlertMessage.Error.ViewModel){
         
+        let alert = UIAlertController(title: "Alert", message: viewModel.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+
+    }
+    
+    func displayAlertSuccess(viewModel: Registration.AlertMessage.Success.ViewModel){
+        
+        let alert = UIAlertController(title:"", message: viewModel.message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
+
     }
 }
 
@@ -85,6 +99,11 @@ extension RegistrationViewController{
         
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(uploadImage)))
         profileImageView.isUserInteractionEnabled = true
+    }
+    
+    @objc func dismissAlert(){
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -110,7 +129,6 @@ extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigat
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.image = selectedImage
         dismiss(animated: true, completion: nil)
-
     }
     
 }

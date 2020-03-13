@@ -23,6 +23,7 @@ class ChatLogWorker {
     
     
     var delegate: LoadMessage?
+    var alertDelegate: ErrorAlert?
     
     func saveMessage(textMessage: String, toUserID: String) {
         
@@ -39,7 +40,7 @@ class ChatLogWorker {
         storageReference.putData(msgImage, metadata: nil) { (metaData, error) in
             
             if let err = error{
-                print(err.localizedDescription)
+                self.alertDelegate?.alertError(message: err.localizedDescription)
             }
             else{
                 
@@ -89,7 +90,7 @@ extension ChatLogWorker{
         
         childRef.updateChildValues(values) { (error, reference) in
             if let err = error {
-                print(err.localizedDescription)
+                self.alertDelegate?.alertError(message: err.localizedDescription)
                 return
             }
             

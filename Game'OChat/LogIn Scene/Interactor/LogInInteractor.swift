@@ -13,7 +13,8 @@ protocol LogInInteractorInput {
 }
 
 protocol LogInInteractorOutput {
-    func present(response: LogIn.Fetch.Response)
+    func presentErrorAlert(response: LogIn.AlertMessage.Error.Response)
+    func presentSuccessAlert(response: LogIn.AlertMessage.Success.Response)
 }
 
 class LogInInteractor: LogInInteractorInput {
@@ -29,7 +30,22 @@ class LogInInteractor: LogInInteractorInput {
     
     func fetch(request: LogIn.Fetch.Request) {
         
+        worker.alertErrorDelegate = self
+        worker.alertSuccessDelegate = self
         worker.logInUser(userData: request.userData, vc: request.viewController)
-        output.present(response: LogIn.Fetch.Response())
+    }
+}
+
+extension LogInInteractor: ErrorAlert & SuccessAlert{
+
+    
+    func alertError(message: String) {
+        
+        output.presentErrorAlert(response: LogIn.AlertMessage.Error.Response(message: message))
+    }
+    
+    func alertSuccess(message: String) {
+        
+        output.presentSuccessAlert(response: LogIn.AlertMessage.Success.Response(message: message))
     }
 }

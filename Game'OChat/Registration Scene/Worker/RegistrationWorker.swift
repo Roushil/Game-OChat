@@ -15,13 +15,16 @@ import Firebase
 
 class RegistrationWorker {
     
+    var errorAlertDelegate: ErrorAlert?
+    var successAlertDelegate: SuccessAlert?
+    
     func registerUserData(registerData: RegisterData, vc: UIViewController) {
         
         
         Auth.auth().createUser(withEmail: registerData.email, password: registerData.password) { (authResult, error) in
             
             if let err = error{
-                print(err.localizedDescription)
+                self.errorAlertDelegate?.alertError(message: err.localizedDescription)
             }
             else{
                 
@@ -32,7 +35,7 @@ class RegistrationWorker {
                 storageReference.putData(image, metadata: nil) { (metaData, error) in
                     
                     if let err = error{
-                        print(err.localizedDescription)
+                        self.errorAlertDelegate?.alertError(message: err.localizedDescription)
                     }
                     else{
                         
@@ -44,10 +47,10 @@ class RegistrationWorker {
                             userReference.updateChildValues(values) { (error, reference) in
                                 
                                 if let err = error{
-                                    print(err.localizedDescription)
+                                    self.errorAlertDelegate?.alertError(message: err.localizedDescription)
                                 }
                                 else{
-                                    print("Successfully Registered")
+                                    self.successAlertDelegate?.alertSuccess(message: "Successfully Registered")
                                     vc.dismiss(animated: true, completion: nil)
                                 }
                             }

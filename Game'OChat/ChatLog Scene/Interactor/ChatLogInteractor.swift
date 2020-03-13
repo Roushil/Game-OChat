@@ -20,7 +20,7 @@ protocol ChatLogInteractorOutput {
     
     func presentChat(response: ChatLog.Message.Load.Response)
     func presentContactDetail(response: ChatLog.NewContact.Response)
-    
+    func presentAlert(response: ChatLog.AlertMessage.Response)
 }
 
 class ChatLogInteractor: ChatLogInteractorInput {
@@ -37,18 +37,21 @@ class ChatLogInteractor: ChatLogInteractorInput {
     func sendMessage(request: ChatLog.Message.SaveText.Request) {
         
         guard let userID = dataStore.selectedNewContact?.uniqueUserID else { return }
+        worker.alertDelegate = self
         worker.saveMessage(textMessage: request.messgae, toUserID: userID)
     }
     
     func sendImage(request: ChatLog.Message.SaveImage.Request){
         
         guard let userID = dataStore.selectedNewContact?.uniqueUserID else { return }
+        worker.alertDelegate = self
         worker.saveImage(image: request.image, toUserID: userID)
     }
     
     func loadChat(request: ChatLog.Message.Load.Request){
         
         let userData = dataStore.selectedNewContact
+        worker.alertDelegate = self
         worker.delegate = self
         worker.loadMessages(userDetail: userData)
     }
@@ -60,10 +63,17 @@ class ChatLogInteractor: ChatLogInteractorInput {
     }
 }
 
-extension ChatLogInteractor: LoadMessage{
-    
+extension ChatLogInteractor: LoadMessage & ErrorAlert{
+
     func passMessageDetails(message: [MessageModel], userDetail: AddContactsViewModel?) {
         
         output.presentChat(response: ChatLog.Message.Load.Response(message: message, chatPartner: userDetail))
     }
+    
+    func alertError(message: String) {
+        
+        output.presentAlert(response: ChatLog.AlertMessage.Response(message: message))
+    }
+    
+    
 }

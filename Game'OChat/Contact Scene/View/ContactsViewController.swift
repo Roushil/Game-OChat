@@ -17,6 +17,8 @@ protocol ContactsViewControllerInput: class {
     func displayData(viewModel: Contacts.Fetch.ViewModel)
     func displayMessages(viewModel: Contacts.Message.ViewModel)
     func displayDeletedMessage(viewModel: Contacts.Delete.ViewModel)
+    func displayAlert(viewModel: Contacts.AlertMessage.ViewModel)
+
 }
 
 protocol ContactsViewControllerOutput {
@@ -115,19 +117,20 @@ extension ContactsViewController: ContactsViewControllerInput {
         
     }
     
-    @objc func handleReloadtable(){
-        
-        DispatchQueue.main.async {
-            
-            self.contactMessageTableView.reloadData()
-        }
-    }
     
     func displayDeletedMessage(viewModel: Contacts.Delete.ViewModel){
         
         self.viewMessages?.messageViewModel.remove(at: viewModel.rowIndex)
         self.contactMessageTableView.reloadData()
     }
+    
+    func displayAlert(viewModel: Contacts.AlertMessage.ViewModel){
+        
+        let alert = UIAlertController(title: "Alert", message: viewModel.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }
 
 extension ContactsViewController: UITableViewDataSource, UITableViewDelegate{
@@ -180,5 +183,13 @@ extension ContactsViewController{
             let contactDetail = AddContactsViewModel(name: name, email: email, profileImage: profileImage, uniqueUserID: uniqueID)
             self.router.routeToChatLogScene(contactDetail: contactDetail)
         }, withCancel: nil)
+    }
+    
+    @objc func handleReloadtable(){
+        
+        DispatchQueue.main.async {
+            
+            self.contactMessageTableView.reloadData()
+        }
     }
 }

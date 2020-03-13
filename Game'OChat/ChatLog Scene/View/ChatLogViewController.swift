@@ -16,6 +16,7 @@ import Firebase
 protocol ChatLogViewControllerInput: class {
     func displayChat(viewModel: ChatLog.Message.Load.ViewModel)
     func displayContactDetail(viewModel: ChatLog.NewContact.ViewModel)
+    func displayAlert(viewModel: ChatLog.AlertMessage.ViewModel)
 }
 
 protocol ChatLogViewControllerOutput {
@@ -115,12 +116,14 @@ extension ChatLogViewController: ChatLogViewControllerInput {
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadtable), userInfo: nil, repeats: false)
     }
     
-    @objc func handleReloadtable(){
+    func displayAlert(viewModel: ChatLog.AlertMessage.ViewModel){
         
-        DispatchQueue.main.async{
-            self.chatsCollectionView.reloadData()
-        }
+        let alert = UIAlertController(title: "Alert", message: viewModel.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+
     }
+    
 }
 
 extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -168,6 +171,14 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
 
 
 extension ChatLogViewController{
+    
+    
+    @objc func handleReloadtable(){
+        
+        DispatchQueue.main.async{
+            self.chatsCollectionView.reloadData()
+        }
+    }
     
     private func estimateFrameForMessage(text: String) -> CGRect{
         

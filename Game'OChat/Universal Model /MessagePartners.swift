@@ -36,7 +36,6 @@ class MessageModel:NSObject{
         imageURL = dictionary["imageURL"] as? String
 
     }
-    
 }
 
 

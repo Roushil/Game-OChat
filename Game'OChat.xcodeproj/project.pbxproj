@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B08BEAC241C132100720D35 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08BEAB241C132100720D35 /* Alerts.swift */; };
 		2B0AB82D2406FCE20096C0A0 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0AB82C2406FCE20096C0A0 /* Constraints.swift */; };
 		2B2BB14E23F7DEAD00DB3BCA /* AddContactsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB14223F7DEAC00DB3BCA /* AddContactsModels.swift */; };
 		2B2BB14F23F7DEAD00DB3BCA /* AddContactsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BB14423F7DEAC00DB3BCA /* AddContactsPresenter.swift */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		24C62D13AE96BA1F1096F4F8 /* Pods-Game'OChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Game'OChat.release.xcconfig"; path = "Target Support Files/Pods-Game'OChat/Pods-Game'OChat.release.xcconfig"; sourceTree = "<group>"; };
+		2B08BEAB241C132100720D35 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		2B0AB82C2406FCE20096C0A0 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		2B2BB14223F7DEAC00DB3BCA /* AddContactsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsModels.swift; sourceTree = "<group>"; };
 		2B2BB14423F7DEAC00DB3BCA /* AddContactsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsPresenter.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			children = (
 				2B7F93CE24052C8400578FC1 /* Extensions.swift */,
 				2BB32C87240BE20300BCA892 /* MessagePartners.swift */,
+				2B08BEAB241C132100720D35 /* Alerts.swift */,
 			);
 			path = "Universal Model ";
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				2B3126C724091919008991E3 /* ChatLogModels.swift in Sources */,
 				2B2BB14E23F7DEAD00DB3BCA /* AddContactsModels.swift in Sources */,
 				2BFE39CE23F2AD2A0022B135 /* ContactsWorker.swift in Sources */,
+				2B08BEAC241C132100720D35 /* Alerts.swift in Sources */,
 				2BFE39FF23F2AD9F0022B135 /* LogInDataStore.swift in Sources */,
 				2B3126C824091919008991E3 /* ChatLogPresenter.swift in Sources */,
 				2B7F93CF24052C8400578FC1 /* Extensions.swift in Sources */,

@@ -28,12 +28,13 @@ protocol ContactDelete{
     func deleteContact(rowIndex: Int)
 }
 
+
 class ContactsWorker {
     
     var logDelegate: HandleLogout?
     var messageDelegate: Messages?
     var deleteMessageDelegate: ContactDelete?
-    
+    var alertDelegate: ErrorAlert?
     var messages: [MessageModel] = []
     let messagePartner = MessagePartners()
     var messageDictionary = [String: MessageModel]()
@@ -48,7 +49,8 @@ class ContactsWorker {
                 logDelegate?.checkLog(isLogout: true, userData: ["": nil])
             }
             catch let error{
-                print(error.localizedDescription)
+                
+                alertDelegate?.alertError(message: error.localizedDescription)
             }
         }
         else{
@@ -69,7 +71,8 @@ class ContactsWorker {
             logDelegate?.checkLog(isLogout: true, userData: ["": nil])
         }
         catch let error{
-            print(error.localizedDescription)
+            
+            alertDelegate?.alertError(message: error.localizedDescription)
         }
     }
     
@@ -78,31 +81,31 @@ class ContactsWorker {
         
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
         K.Reference.database.child("usrmsgs").child(currentUserId).observe(.childAdded, with: { (snapShot) in
-            
+
             let userID = snapShot.key
             K.Reference.database.child("usrmsgs").child(currentUserId).child(userID).observe(.childAdded, with: { (snapShot) in
-                
+
                 let messageId = snapShot.key
                 K.Reference.database.child("messages").child(messageId).observeSingleEvent(of: .value, with: { (snapshot) in
-                    
+
                     guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
-                    
+
                     let message = MessageModel(dictionary: dictionary)
-                    
+
                     guard let chatPartnerID = self.messagePartner.getPartnerID(messageDetail: message) else {return}
                     self.messageDictionary[chatPartnerID] = message
                     self.messages = Array(self.messageDictionary.values)
                     self.messages.sort(by: { (message1, message2) -> Bool in
-                        
+
                         return message1.timeStamp!.int32Value > message2.timeStamp!.int32Value
                     })
-                    
+
                     self.messageDelegate?.passMessage(messageModel: self.messages)
-                    
+
                 }, withCancel: nil)
-                
+
             }, withCancel: nil)
-            
+
         }, withCancel: nil)
         
     }
@@ -116,7 +119,7 @@ class ContactsWorker {
         K.Reference.database.child("usrmsgs").child(currentUserId).child(chatPartnerID).removeValue { (error, reference) in
             
             if let err = error{
-                print(err.localizedDescription)
+                self.alertDelegate?.alertError(message: err.localizedDescription)
             }
             
             self.messageDictionary.removeValue(forKey: chatPartnerID)

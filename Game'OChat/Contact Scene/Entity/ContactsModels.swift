@@ -79,6 +79,21 @@ enum Contacts {
             var rowIndex: Int
         }
     }
+    
+    enum AlertMessage {
+        
+        struct Request {
+        }
+        
+        struct Response {
+            
+            var message: String
+        }
+        
+        struct ViewModel {
+            var message: String
+        }
+    }
 }
 
 

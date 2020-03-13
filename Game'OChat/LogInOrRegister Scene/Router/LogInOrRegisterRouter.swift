@@ -41,8 +41,7 @@ extension LogInOrRegisterRouter {
     // MARK: Passing data
         func passDataToRegistrationVC(source: LogInOrRegisterDataStore, destination: inout RegistrationDataStore) {
             
-            //destination.profileImage = source.profileImage
-            //print(destination.profileImage?.size)
+
         }
 }
 

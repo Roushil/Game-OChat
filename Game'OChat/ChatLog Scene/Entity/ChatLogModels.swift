@@ -9,7 +9,6 @@ import UIKit
 
 enum ChatLog {
     
-    
     enum Message {
         
         enum SaveText{
@@ -44,7 +43,6 @@ enum ChatLog {
             }
         }
 
-        
         enum Load{
              
              struct Request {
@@ -63,6 +61,7 @@ enum ChatLog {
                 var chatPartner: AddContactsViewModel?
              }
          }
+
     }
     
     enum NewContact {
@@ -79,6 +78,20 @@ enum ChatLog {
         struct ViewModel {
             
             var viewContactDetail: AddContactsViewModel
+        }
+    }
+    
+    enum AlertMessage {
+        
+        struct Request {
+        }
+        
+        struct Response {
+            var message: String
+        }
+        
+        struct ViewModel {
+            var message: String
         }
     }
 }
