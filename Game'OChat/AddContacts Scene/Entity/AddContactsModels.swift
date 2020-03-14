@@ -52,9 +52,9 @@ extension AddContactsViewModel{
     
     init(dataModel: AddContactsModel) {
         
-        self.name = dataModel.name ?? ""
-        self.email = dataModel.email ?? ""
-        self.profileImage = dataModel.profileImageURL ?? ""
-        self.uniqueUserID = dataModel.uniqueUserID ?? ""
+        self.name = dataModel.name ?? K.empty
+        self.email = dataModel.email ?? K.empty
+        self.profileImage = dataModel.profileImageURL ?? K.empty
+        self.uniqueUserID = dataModel.uniqueUserID ?? K.empty
     }
 }

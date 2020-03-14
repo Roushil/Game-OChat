@@ -29,9 +29,9 @@ class AddContactsWorker:NSObject {
 
             guard let dictionary = snapShot.value as? [String: AnyObject] else { return }
             let uniqueID = snapShot.ref.key!
-            let name = dictionary["name"] as? String
-            let email = dictionary["email"] as? String
-            let profileImage = dictionary["profileImageURL"] as? String
+            let name = dictionary[K.name] as? String
+            let email = dictionary[K.email] as? String
+            let profileImage = dictionary[K.profileImageURL] as? String
             self.contacts.append(AddContactsModel(name: name, email: email, profileImageURL: profileImage, uniqueUserID: uniqueID))
             self.delegate?.passData(contacts: self.contacts)
             }, withCancel: nil)

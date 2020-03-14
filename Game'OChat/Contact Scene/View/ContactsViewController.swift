@@ -104,7 +104,7 @@ extension ContactsViewController: ContactsViewControllerInput {
     
     func displayData(viewModel: Contacts.Fetch.ViewModel){
         
-        guard let titleName = viewModel.userData["name"] as? String, let profileImage = viewModel.userData["profileImageURL"] as? String else { return }
+        guard let titleName = viewModel.userData[K.name] as? String, let profileImage = viewModel.userData[K.profileImageURL] as? String else { return }
         setNavigationItems(title: titleName, profileImage: profileImage)
     }
     
@@ -126,8 +126,8 @@ extension ContactsViewController: ContactsViewControllerInput {
     
     func displayAlert(viewModel: Contacts.AlertMessage.ViewModel){
         
-        let alert = UIAlertController(title: "Alert", message: viewModel.message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: K.alert, message: viewModel.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: K.okay, style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -142,7 +142,7 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = contactMessageTableView.dequeueReusableCell(withIdentifier: "ContactMessageCell", for: indexPath) as! ContactMessageCell
+        let cell = contactMessageTableView.dequeueReusableCell(withIdentifier: K.Cell.contactMessage, for: indexPath) as! ContactMessageCell
         
         guard let contactData = viewMessages?.messageViewModel[indexPath.row] else { return cell }
         cell.configure(contactDetail: contactData)
@@ -173,13 +173,13 @@ extension ContactsViewController{
         let msgPartner = MessagePartners()
         guard let currentUserID = msgPartner.getPartnerID(messageDetail: contactData) else { return }
         
-        K.Reference.database.child("users").child(currentUserID).observeSingleEvent(of: .value, with: { (snapShot) in
+        K.Reference.database.child(K.users).child(currentUserID).observeSingleEvent(of: .value, with: { (snapShot) in
             
             guard let dictionary = snapShot.value as? [String: AnyObject] else { return }
             let uniqueID = currentUserID
-            let name = dictionary["name"] as? String
-            let email = dictionary["email"] as? String
-            let profileImage = dictionary["profileImageURL"] as? String
+            let name = dictionary[K.name] as? String
+            let email = dictionary[K.email] as? String
+            let profileImage = dictionary[K.profileImageURL] as? String
             let contactDetail = AddContactsViewModel(name: name, email: email, profileImage: profileImage, uniqueUserID: uniqueID)
             self.router.routeToChatLogScene(contactDetail: contactDetail)
         }, withCancel: nil)

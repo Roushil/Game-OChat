@@ -73,7 +73,7 @@ class ChatLogViewController: UIViewController {
         output.loadChat(request: ChatLog.Message.Load.Request())
         
         chatsCollectionView.alwaysBounceVertical = true
-        chatsCollectionView.register(ChatCollectionViewCell.self, forCellWithReuseIdentifier: "ChatCell")
+        chatsCollectionView.register(ChatCollectionViewCell.self, forCellWithReuseIdentifier: K.Cell.chat)
         chatsCollectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
         chatsCollectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         
@@ -90,7 +90,7 @@ class ChatLogViewController: UIViewController {
         
         guard let msg = messageTextField.text else { return }
         output.sendMessage(request: ChatLog.Message.SaveText.Request(messgae: msg))
-        messageTextField.text = ""
+        messageTextField.text = K.empty
     }
     
     @IBAction func sendImageMesssage(_sender: Any){
@@ -118,8 +118,8 @@ extension ChatLogViewController: ChatLogViewControllerInput {
     
     func displayAlert(viewModel: ChatLog.AlertMessage.ViewModel){
         
-        let alert = UIAlertController(title: "Alert", message: viewModel.message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: K.alert, message: viewModel.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: K.okay, style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
 
     }
@@ -135,7 +135,7 @@ extension ChatLogViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = chatsCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatCell", for: indexPath) as! ChatCollectionViewCell
+        let cell = chatsCollectionView.dequeueReusableCell(withReuseIdentifier: K.Cell.chat, for: indexPath) as! ChatCollectionViewCell
         cell.chatLogController = self
         
         guard let messageModel = viewModel?.message[indexPath.row] else { return cell}

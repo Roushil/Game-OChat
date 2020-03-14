@@ -56,11 +56,11 @@ class LogInOrRegisterViewController: UIViewController {
     var views: [UIView] = []
     var viewController : [UIViewController] = []
     lazy var firstChildVC: UIViewController? = {
-       let firstChildVC = self.storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as! LogInViewController
+        let firstChildVC = self.storyboard?.instantiateViewController(withIdentifier: K.ViewControllers.logIn) as! LogInViewController
         return firstChildVC
     }()
     lazy var secondChildVC : UIViewController? = {
-        let secondChildVC = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
+        let secondChildVC = self.storyboard?.instantiateViewController(withIdentifier: K.ViewControllers.registration) as! RegistrationViewController
         return secondChildVC
     }()
 

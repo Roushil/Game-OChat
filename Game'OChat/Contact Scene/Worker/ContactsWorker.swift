@@ -46,7 +46,7 @@ class ContactsWorker {
             
             do{
                 try Auth.auth().signOut()
-                logDelegate?.checkLog(isLogout: true, userData: ["": nil])
+                logDelegate?.checkLog(isLogout: true, userData: [K.empty: nil])
             }
             catch let error{
                 
@@ -68,7 +68,7 @@ class ContactsWorker {
         
         do{
             try Auth.auth().signOut()
-            logDelegate?.checkLog(isLogout: true, userData: ["": nil])
+            logDelegate?.checkLog(isLogout: true, userData: [K.empty: nil])
         }
         catch let error{
             
@@ -80,13 +80,13 @@ class ContactsWorker {
     func loadUserMessages(){
         
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
-        K.Reference.database.child("usrmsgs").child(currentUserId).observe(.childAdded, with: { (snapShot) in
+        K.Reference.database.child(K.userMessages).child(currentUserId).observe(.childAdded, with: { (snapShot) in
 
             let userID = snapShot.key
-            K.Reference.database.child("usrmsgs").child(currentUserId).child(userID).observe(.childAdded, with: { (snapShot) in
+            K.Reference.database.child(K.userMessages).child(currentUserId).child(userID).observe(.childAdded, with: { (snapShot) in
 
                 let messageId = snapShot.key
-                K.Reference.database.child("messages").child(messageId).observeSingleEvent(of: .value, with: { (snapshot) in
+                K.Reference.database.child(K.messages).child(messageId).observeSingleEvent(of: .value, with: { (snapshot) in
 
                     guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
 
@@ -116,7 +116,7 @@ class ContactsWorker {
         let message = self.messages[rowIndex]
         guard let currentUserId = Auth.auth().currentUser?.uid, let chatPartnerID = self.messagePartner.getPartnerID(messageDetail: message) else { return }
         
-        K.Reference.database.child("usrmsgs").child(currentUserId).child(chatPartnerID).removeValue { (error, reference) in
+        K.Reference.database.child(K.userMessages).child(currentUserId).child(chatPartnerID).removeValue { (error, reference) in
             
             if let err = error{
                 self.alertDelegate?.alertError(message: err.localizedDescription)

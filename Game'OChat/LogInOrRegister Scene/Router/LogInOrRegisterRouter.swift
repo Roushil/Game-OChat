@@ -30,7 +30,7 @@ class LogInOrRegisterRouter: NSObject, LogInOrRegisterRoutingLogic, LogInOrRegis
     
     func sendDatatoRegisterationScene(){
         
-        let registrationVc = viewController.storyboard?.instantiateViewController(identifier: "RegistrationViewController") as! RegistrationViewController
+        let registrationVc = viewController.storyboard?.instantiateViewController(identifier: K.ViewControllers.registration) as! RegistrationViewController
         var registrationDS = registrationVc.router!.dataStore!
         passDataToRegistrationVC(source: dataStore, destination: &registrationDS)
     }

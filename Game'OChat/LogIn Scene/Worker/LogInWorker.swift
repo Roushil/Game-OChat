@@ -27,7 +27,7 @@ class LogInWorker {
             }
             else{
                 
-                self.alertSuccessDelegate?.alertSuccess(message: "Successfully Logged In")
+                self.alertSuccessDelegate?.alertSuccess(message: K.logged)
                 vc.dismiss(animated: true, completion: nil)
             }
         }

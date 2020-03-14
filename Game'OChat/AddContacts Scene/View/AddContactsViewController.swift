@@ -57,7 +57,7 @@ class AddContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelContact))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: K.cancel, style: .plain, target: self, action: #selector(cancelContact))
         output.fetch(request: AddContacts.Fetch.Request())
     }
     
@@ -98,7 +98,7 @@ extension AddContactsViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = addContactTableView.dequeueReusableCell(withIdentifier: "AddContactViewCell", for: indexPath) as! AddContactViewCell
+        let cell = addContactTableView.dequeueReusableCell(withIdentifier: K.Cell.addContact, for: indexPath) as! AddContactViewCell
         guard let contact = contactsView?.contactViewModel[indexPath.row] else { return cell }
         cell.configure(viewModel: contact)
         

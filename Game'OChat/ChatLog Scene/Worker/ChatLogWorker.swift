@@ -27,7 +27,7 @@ class ChatLogWorker {
     
     func saveMessage(textMessage: String, toUserID: String) {
         
-        let properties: [String:Any] =  ["text": textMessage]
+        let properties: [String:Any] =  [K.text: textMessage]
         sendMessageWithProperties(properties: properties as [String : AnyObject], toUserID: toUserID)
     }
 
@@ -47,7 +47,7 @@ class ChatLogWorker {
                 storageReference.downloadURL { (url, error) in
                 
                     guard let downloadURL = url?.absoluteString else { return }
-                    let properties = ["imageURL": downloadURL] as [String : Any]
+                    let properties = [K.imageURL: downloadURL] as [String : Any]
                     self.sendMessageWithProperties(properties: properties as [String : AnyObject], toUserID: toUserID)
                 }
             }
@@ -59,10 +59,10 @@ class ChatLogWorker {
         var messages: [MessageModel] = []
         
         guard let currentUserId = Auth.auth().currentUser?.uid, let partnerId = userDetail?.uniqueUserID else { return }
-        K.Reference.database.child("usrmsgs").child(currentUserId).child(partnerId).observe(.childAdded, with: { (snapShot) in
+        K.Reference.database.child(K.userMessages).child(currentUserId).child(partnerId).observe(.childAdded, with: { (snapShot) in
             
             let messageId = snapShot.key
-            K.Reference.database.child("messages").child(messageId).observeSingleEvent(of: .value, with: { (snapshot) in
+            K.Reference.database.child(K.messages).child(messageId).observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
                 let message = MessageModel(dictionary: dictionary)
@@ -82,10 +82,10 @@ extension ChatLogWorker{
         
         guard let fromID = Auth.auth().currentUser?.uid  else { return }
         let timeStamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
-        let ref = K.Reference.database.child("messages")
+        let ref = K.Reference.database.child(K.messages)
         let childRef = ref.childByAutoId()
         
-        var values = ["toID": toUserID, "fromID": fromID, "timeStamp": timeStamp] as [String : Any]
+        var values = [K.toId: toUserID, K.fromId: fromID, K.timeStamp: timeStamp] as [String : Any]
         properties.forEach({values[$0] = $1})
         
         childRef.updateChildValues(values) { (error, reference) in
@@ -95,10 +95,10 @@ extension ChatLogWorker{
             }
             
             guard let messageId = childRef.key else { return }
-            let userMessagesRef = K.Reference.database.child("usrmsgs").child(fromID).child(toUserID).child(messageId)
+            let userMessagesRef = K.Reference.database.child(K.userMessages).child(fromID).child(toUserID).child(messageId)
             userMessagesRef.setValue(1 as AnyObject)
             
-            let recepientMessageRef = K.Reference.database.child("usrmsgs").child(toUserID).child(fromID).child(messageId)
+            let recepientMessageRef = K.Reference.database.child(K.userMessages).child(toUserID).child(fromID).child(messageId)
             recepientMessageRef.setValue(1 as AnyObject)
         }
     }

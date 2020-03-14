@@ -29,14 +29,14 @@ class ContactsRouter: NSObject, ContactsRoutingLogic, ContactsDataPassing {
     
     func routeToLoginOrRegisterScene() {
         
-        let logInRegsiterVC = viewController.storyboard?.instantiateViewController(identifier: "LogInOrRegisterViewController") as! LogInOrRegisterViewController
+        let logInRegsiterVC = viewController.storyboard?.instantiateViewController(identifier: K.ViewControllers.logInOrRegister) as! LogInOrRegisterViewController
         navigateToLogInOrRegisterScene(source: viewController, destination: logInRegsiterVC)
 
     }
     
     func routeToAddContactsScene(){
         
-        let addContactsVc = viewController.storyboard?.instantiateViewController(identifier: "AddContactsViewController") as! AddContactsViewController
+        let addContactsVc = viewController.storyboard?.instantiateViewController(identifier: K.ViewControllers.addContact) as! AddContactsViewController
         addContactsVc.contactsVC = viewController
         let navController = UINavigationController(rootViewController: addContactsVc)
         navigateToAddContactScene(source: viewController, destination: navController)
@@ -44,7 +44,7 @@ class ContactsRouter: NSObject, ContactsRoutingLogic, ContactsDataPassing {
     
     func routeToChatLogScene(contactDetail: AddContactsViewModel){
         
-        let chatLogVc = viewController.storyboard?.instantiateViewController(identifier: "ChatLogViewController") as! ChatLogViewController
+        let chatLogVc = viewController.storyboard?.instantiateViewController(identifier: K.ViewControllers.chatLog) as! ChatLogViewController
         dataStore.selectedNewContact = contactDetail
         var chatLogDS = chatLogVc.router!.dataStore!
         passDataToChatLogVC(source: dataStore, destination: &chatLogDS)

@@ -31,9 +31,9 @@ class ContactMessageCell: UITableViewCell {
         let msgPartner = MessagePartners()
         
         if let id = msgPartner.getPartnerID(messageDetail: contactDetail)  {
-            K.Reference.database.child("users").child(id).observeSingleEvent(of: .value, with: {  (snapshot) in
+            K.Reference.database.child(K.users).child(id).observeSingleEvent(of: .value, with: {  (snapshot) in
                 
-                guard let dictionary =  snapshot.value as? [String: AnyObject], let name =  dictionary["name"] as? String, let image = dictionary["profileImageURL"] as? String else { return }
+                guard let dictionary =  snapshot.value as? [String: AnyObject], let name =  dictionary[K.name] as? String, let image = dictionary[K.profileImageURL] as? String else { return }
                 
                 self.contactName.text = name
                 self.contactProfileImage.loadImageUsingCache(image: image)
@@ -46,7 +46,7 @@ class ContactMessageCell: UITableViewCell {
         guard let seconds = contactDetail.timeStamp?.doubleValue else { return }
         let time = NSDate(timeIntervalSince1970: seconds)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm a"
+        dateFormatter.dateFormat = K.dateFormat
         messageTime.text = dateFormatter.string(from: time as Date)
     }
 

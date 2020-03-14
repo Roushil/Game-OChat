@@ -29,11 +29,11 @@ class MessageModel:NSObject{
      init(dictionary: [String: AnyObject]) {
         super.init()
         
-        fromID = dictionary["fromID"] as? String
-        text = dictionary["text"] as? String
-        timeStamp = dictionary["timeStamp"] as? NSNumber
-        toID = dictionary["toID"] as? String
-        imageURL = dictionary["imageURL"] as? String
+        fromID = dictionary[K.fromId] as? String
+        text = dictionary[K.text] as? String
+        timeStamp = dictionary[K.timeStamp] as? NSNumber
+        toID = dictionary[K.toId] as? String
+        imageURL = dictionary[K.imageURL] as? String
 
     }
 }

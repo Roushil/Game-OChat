@@ -60,7 +60,7 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileImageView.image = UIImage(named: "blank_profile")
+        profileImageView.image = UIImage(named: K.blankImage)
         uploadProfileImage()
     }
     
@@ -78,15 +78,15 @@ extension RegistrationViewController: RegistrationViewControllerInput {
     
     func displayAlertError(viewModel: Registration.AlertMessage.Error.ViewModel){
         
-        let alert = UIAlertController(title: "Alert", message: viewModel.message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: K.alert, message: viewModel.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: K.okay, style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
 
     }
     
     func displayAlertSuccess(viewModel: Registration.AlertMessage.Success.ViewModel){
         
-        let alert = UIAlertController(title:"", message: viewModel.message, preferredStyle: .alert)
+        let alert = UIAlertController(title:K.empty, message: viewModel.message, preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
 

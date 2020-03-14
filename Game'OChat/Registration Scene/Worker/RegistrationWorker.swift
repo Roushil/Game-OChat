@@ -43,14 +43,14 @@ class RegistrationWorker {
                             guard let downloadURL = url?.absoluteString else { return }
                             
                             let userReference = K.Reference.database.child(K.users).child(uid)
-                            let values = ["name": registerData.name, "email": registerData.email, "profileImageURL": downloadURL]
+                            let values = [K.name: registerData.name, K.email: registerData.email, K.profileImageURL: downloadURL]
                             userReference.updateChildValues(values) { (error, reference) in
                                 
                                 if let err = error{
                                     self.errorAlertDelegate?.alertError(message: err.localizedDescription)
                                 }
                                 else{
-                                    self.successAlertDelegate?.alertSuccess(message: "Successfully Registered")
+                                    self.successAlertDelegate?.alertSuccess(message: K.registered)
                                     vc.dismiss(animated: true, completion: nil)
                                 }
                             }

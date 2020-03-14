@@ -81,10 +81,10 @@ extension LogInViewController: LogInViewControllerInput {
 
     func displayErrorAlert(viewModel: LogIn.AlertMessage.Error.ViewModel){
         
-        let alert = UIAlertController(title: "Alert", message: viewModel.message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
-            self.emailTextField.text = ""
-            self.passwordTextField.text = ""
+        let alert = UIAlertController(title: K.alert, message: viewModel.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: K.okay, style: .cancel, handler: { (action) in
+            self.emailTextField.text = K.empty
+            self.passwordTextField.text = K.empty
         }))
 
         self.present(alert, animated: true, completion: nil)
@@ -92,9 +92,9 @@ extension LogInViewController: LogInViewControllerInput {
     
     func displaySuccessAlert(viewModel: LogIn.AlertMessage.Success.ViewModel){
         
-        let alert = UIAlertController(title:"", message: viewModel.message, preferredStyle: .alert)
-        emailTextField.text = ""
-        passwordTextField.text = ""
+        let alert = UIAlertController(title:K.empty, message: viewModel.message, preferredStyle: .alert)
+        emailTextField.text = K.empty
+        passwordTextField.text = K.empty
         self.present(alert, animated: true, completion: nil)
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
         
