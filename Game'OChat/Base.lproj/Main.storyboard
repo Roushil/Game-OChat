@@ -586,7 +586,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="blank_profile" width="1280" height="1280"/>
+        <image name="blank_profile" width="426.66665649414062" height="426.66665649414062"/>
         <image name="paperplane.fill" catalog="system" width="64" height="60"/>
         <image name="photo" catalog="system" width="64" height="46"/>
         <image name="square.and.pencil" catalog="system" width="64" height="58"/>
