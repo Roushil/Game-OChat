@@ -81,17 +81,17 @@ class ContactsWorker {
         
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
         K.Reference.database.child(K.userMessages).child(currentUserId).observe(.childAdded, with: { (snapShot) in
-
+            
             let userID = snapShot.key
             K.Reference.database.child(K.userMessages).child(currentUserId).child(userID).observe(.childAdded, with: { (snapShot) in
-
+                
                 let messageId = snapShot.key
                 K.Reference.database.child(K.messages).child(messageId).observeSingleEvent(of: .value, with: { (snapshot) in
-
+                    
                     guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
-
+                    
                     let message = MessageModel(dictionary: dictionary)
-
+            
                     guard let chatPartnerID = self.messagePartner.getPartnerID(messageDetail: message) else {return}
                     self.messageDictionary[chatPartnerID] = message
                     self.messages = Array(self.messageDictionary.values)
@@ -101,11 +101,11 @@ class ContactsWorker {
                     })
 
                     self.messageDelegate?.passMessage(messageModel: self.messages)
-
+                    
                 }, withCancel: nil)
-
+                
             }, withCancel: nil)
-
+            
         }, withCancel: nil)
         
     }
