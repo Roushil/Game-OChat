@@ -9,10 +9,10 @@ import UIKit
 
 protocol ContactsDataStore {
     
-    var selectedNewContact: AddContactsViewModel? { get set}
+    var selectedNewContact: AddContactsModel? { get set}
 }
 
 class DefaultContactsDataStore: ContactsDataStore {
     
-    var selectedNewContact: AddContactsViewModel?
+    var selectedNewContact: AddContactsModel?
 }

@@ -23,6 +23,7 @@ class AddContactsPresenter: AddContactsPresenterInput {
     
     func present(response: AddContacts.Fetch.Response) {
         
-        output.display(viewModel: AddContacts.Fetch.ViewModel(contactViewModel: response.contactDataModel.map({AddContactsViewModel(dataModel: $0)})))
+        output.display(viewModel: AddContacts.Fetch.ViewModel(contactViewModel: response.contactDataModel))
+        
     }
 }

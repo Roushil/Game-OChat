@@ -9,11 +9,11 @@ import UIKit
 
 protocol ChatLogDataStore {
     
-    var selectedNewContact: AddContactsViewModel? { get set}
+    var selectedNewContact: AddContactsModel? { get set}
     
 }
 
 class DefaultChatLogDataStore: ChatLogDataStore {
     
-    var selectedNewContact: AddContactsViewModel?
+    var selectedNewContact: AddContactsModel?
 }

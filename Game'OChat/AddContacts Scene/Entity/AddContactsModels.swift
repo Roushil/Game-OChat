@@ -23,7 +23,7 @@ enum AddContacts {
         
         struct ViewModel {
             
-            let contactViewModel: [AddContactsViewModel]
+            let contactViewModel: [AddContactsModel]
         }
     }
 }
@@ -38,23 +38,3 @@ struct AddContactsModel {
 }
 
 
-
-struct AddContactsViewModel{
-    
-    var name: String?
-    var email: String?
-    var profileImage:String?
-    var uniqueUserID:String?
-    
-}
-
-extension AddContactsViewModel{
-    
-    init(dataModel: AddContactsModel) {
-        
-        self.name = dataModel.name ?? K.empty
-        self.email = dataModel.email ?? K.empty
-        self.profileImage = dataModel.profileImageURL ?? K.empty
-        self.uniqueUserID = dataModel.uniqueUserID ?? K.empty
-    }
-}

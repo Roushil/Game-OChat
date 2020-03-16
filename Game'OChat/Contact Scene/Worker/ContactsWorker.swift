@@ -93,8 +93,10 @@ class ContactsWorker {
                     let message = MessageModel(dictionary: dictionary)
             
                     guard let chatPartnerID = self.messagePartner.getPartnerID(messageDetail: message) else {return}
+                    
                     self.messageDictionary[chatPartnerID] = message
                     self.messages = Array(self.messageDictionary.values)
+                    
                     self.messages.sort(by: { (message1, message2) -> Bool in
 
                         return message1.timeStamp!.int32Value > message2.timeStamp!.int32Value

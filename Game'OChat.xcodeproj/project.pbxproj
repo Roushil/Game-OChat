@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -325,6 +325,7 @@
 		2B75969A240875E400134403 /* Universal Model  */ = {
 			isa = PBXGroup;
 			children = (
+				2BEB802E23F15D7900D6E15F /* Constants.swift */,
 				2B7F93CE24052C8400578FC1 /* Extensions.swift */,
 				2BB32C87240BE20300BCA892 /* MessagePartners.swift */,
 				2B08BEAB241C132100720D35 /* Alerts.swift */,
@@ -363,7 +364,6 @@
 			children = (
 				2BEB801423F1465000D6E15F /* AppDelegate.swift */,
 				2BEB801623F1465000D6E15F /* SceneDelegate.swift */,
-				2BEB802E23F15D7900D6E15F /* Constants.swift */,
 				2B75969A240875E400134403 /* Universal Model  */,
 				2BFE39A123F2A31F0022B135 /* LogInOrRegister Scene */,
 				2BFE39BB23F2AD2A0022B135 /* Contact Scene */,

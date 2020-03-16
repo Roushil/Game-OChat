@@ -52,7 +52,7 @@ class AddContactsViewController: UIViewController {
 
     @IBOutlet weak var addContactTableView: UITableView!
     var contactsView: AddContacts.Fetch.ViewModel?
-    var contactsVC: ContactsViewController?
+    weak var contactsVC: ContactsViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()

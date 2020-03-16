@@ -52,13 +52,13 @@ enum ChatLog {
              struct Response {
                 
                 var message: [MessageModel]
-                var chatPartner: AddContactsViewModel?
+                var chatPartner: AddContactsModel?
              }
              
              struct ViewModel {
                 
                 var message: [MessageModel]
-                var chatPartner: AddContactsViewModel?
+                var chatPartner: AddContactsModel?
              }
          }
 
@@ -72,12 +72,12 @@ enum ChatLog {
         
         struct Response {
             
-            var contactDetail: AddContactsViewModel
+            var contactDetail: AddContactsModel
         }
         
         struct ViewModel {
             
-            var viewContactDetail: AddContactsViewModel
+            var viewContactDetail: AddContactsModel
         }
     }
     

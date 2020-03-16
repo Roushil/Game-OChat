@@ -15,7 +15,7 @@ import UIKit
 protocol ContactsRoutingLogic {
     func routeToLoginOrRegisterScene()
     func routeToAddContactsScene()
-    func routeToChatLogScene(contactDetail: AddContactsViewModel)
+    func routeToChatLogScene(contactDetail: AddContactsModel)
 }
 
 protocol ContactsDataPassing {
@@ -42,7 +42,7 @@ class ContactsRouter: NSObject, ContactsRoutingLogic, ContactsDataPassing {
         navigateToAddContactScene(source: viewController, destination: navController)
     }
     
-    func routeToChatLogScene(contactDetail: AddContactsViewModel){
+    func routeToChatLogScene(contactDetail: AddContactsModel){
         
         let chatLogVc = viewController.storyboard?.instantiateViewController(identifier: K.ViewControllers.chatLog) as! ChatLogViewController
         dataStore.selectedNewContact = contactDetail

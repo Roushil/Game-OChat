@@ -19,9 +19,9 @@ class AddContactViewCell: UITableViewCell {
         
     }
     
-    func configure(viewModel: AddContactsViewModel){
+    func configure(viewModel: AddContactsModel){
         
-        guard let name = viewModel.name, let profile = viewModel.profileImage, let email = viewModel.email else { return }
+        guard let name = viewModel.name, let profile = viewModel.profileImageURL, let email = viewModel.email else { return }
         contactName.text = name
         contactEmail.text = email
         profileImage.loadImageUsingCache(image: profile)

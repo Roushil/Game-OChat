@@ -188,11 +188,11 @@ extension ChatLogViewController{
         
     }
     
-    private func configureCell(cell: ChatCollectionViewCell, message: MessageModel, chatPartner: AddContactsViewModel?){
+    private func configureCell(cell: ChatCollectionViewCell, message: MessageModel, chatPartner: AddContactsModel?){
         
         cell.textView.text = message.text
         
-        guard let partnerImage = chatPartner?.profileImage else { return }
+        guard let partnerImage = chatPartner?.profileImageURL else { return }
         cell.profileImageView.loadImageUsingCache(image: partnerImage)
         
         if let messageUrl = message.imageURL{

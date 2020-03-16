@@ -64,7 +64,7 @@ class ContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadMessages()
+        //loadMessages()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,7 +114,6 @@ extension ContactsViewController: ContactsViewControllerInput {
         
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadtable), userInfo: nil, repeats: false)
-        
     }
     
     
@@ -180,7 +179,7 @@ extension ContactsViewController{
             let name = dictionary[K.name] as? String
             let email = dictionary[K.email] as? String
             let profileImage = dictionary[K.profileImageURL] as? String
-            let contactDetail = AddContactsViewModel(name: name, email: email, profileImage: profileImage, uniqueUserID: uniqueID)
+            let contactDetail = AddContactsModel(name: name, email: email, profileImageURL: profileImage, uniqueUserID: uniqueID)
             self.router.routeToChatLogScene(contactDetail: contactDetail)
         }, withCancel: nil)
     }

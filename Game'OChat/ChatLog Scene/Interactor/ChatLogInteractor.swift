@@ -65,7 +65,7 @@ class ChatLogInteractor: ChatLogInteractorInput {
 
 extension ChatLogInteractor: LoadMessage & ErrorAlert{
 
-    func passMessageDetails(message: [MessageModel], userDetail: AddContactsViewModel?) {
+    func passMessageDetails(message: [MessageModel], userDetail: AddContactsModel?) {
         
         output.presentChat(response: ChatLog.Message.Load.Response(message: message, chatPartner: userDetail))
     }

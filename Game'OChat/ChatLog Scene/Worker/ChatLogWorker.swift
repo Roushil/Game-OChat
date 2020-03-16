@@ -15,7 +15,7 @@ import Firebase
 
 protocol LoadMessage{
     
-    func passMessageDetails(message: [MessageModel], userDetail: AddContactsViewModel?)
+    func passMessageDetails(message: [MessageModel], userDetail: AddContactsModel?)
 }
 
 
@@ -54,7 +54,7 @@ class ChatLogWorker {
         }
     }
     
-    func loadMessages(userDetail: AddContactsViewModel?){
+    func loadMessages(userDetail: AddContactsModel?){
         
         var messages: [MessageModel] = []
         
