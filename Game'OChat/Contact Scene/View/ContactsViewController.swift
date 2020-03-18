@@ -64,7 +64,6 @@ class ContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //loadMessages()
     }
     
     override func viewWillAppear(_ animated: Bool) {
