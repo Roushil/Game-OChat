@@ -35,9 +35,13 @@ This app follows the **Clean Swift(VIP)** Pattern which consist:
 >Transferring Data To VC
 
 # Pods
-1. pod 'Firebase/Auth'           // Authenticating Users 
-2. pod 'Firebase/Storage'        // Storing Multimedia
-3. pod 'Firebase/Database'       // Realtime Database
-4. pod 'IQKeyboardManagerSwift'  // Managing Keyboard in Messaging
+1. pod 'Firebase/Auth'           
+> Authenticating Users 
+2. pod 'Firebase/Storage'        
+> Storing Multimedia
+3. pod 'Firebase/Database'       
+> Realtime Database
+4. pod 'IQKeyboardManagerSwift'  
+> Managing Keyboard in Messaging
 
 
