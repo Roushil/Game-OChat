@@ -2,11 +2,11 @@
 
 A realtime Chatting App that uses Firebase for its authentication and storage.
 - It consists of:
-1. Registrating new User
-2. Logging in
-3. Messages History
-4. Chatting Scene
-5. Sending Text and Images To Chat Partner
+  - Registrating new User
+  - Logging in
+  - Messages History
+  - Chatting Scene
+  - Sending Text and Images To Chat Partner
 
 
 - ***Used ios 9 constraints as well as use of storyboard for UI Design***
