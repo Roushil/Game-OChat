@@ -28,9 +28,9 @@ This app follows the **Clean Swift(VIP)** Pattern which consist:
 3. Interactor   
 > Business Logic
 4. Presenter   
-> Viewlogic
-5. ViewModel    
-> Viewing Data Logic
+> ViewData Logic
+5. View 
+> View Controller
 6. Router       
 >Transferring Data To VC
 
