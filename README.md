@@ -1,17 +1,17 @@
 # Game-OChat
 
 A realtime Chatting App that uses Firebase for its authentication and storage.
-- It consists of:
+- ***Functionalities:***
   - Registrating new User
   - Logging in
   - Messages History
   - Chatting Scene
   - Sending Text and Images To Chat Partner
 
-
 - ***Used ios 9 constraints as well as use of storyboard for UI Design***
 - ***Handling Alerts in Error and Success***
 - ***Cache Images***
+
 
 # Firebase
 This is a chatting app in swift that uses firebase for folowing: 
