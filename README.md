@@ -8,6 +8,9 @@ It consists of:
 4. Chatting Scene
 5. Sending Text and Images To Chat Partner
 
+
+// Used ios 9 constraints as well as use of storyboard for UI Design
+
 # Firebase
 This is a chatting app in swift that uses firebase for folowing: 
 1. Authentication 
@@ -28,4 +31,6 @@ This app follows the Clean Swift Pattern which consist:
 2. pod 'Firebase/Storage'        // Storing Multimedia
 3. pod 'Firebase/Database'       // Realtime Database
 4. pod 'IQKeyboardManagerSwift'  // Managing Keyboard in Messaging
+
+
 
