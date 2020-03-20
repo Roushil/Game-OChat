@@ -1,7 +1,7 @@
 # Game-OChat
 
-A realtime Chatting App that uses Firebase for its authentication and storage
-It consists of:
+A realtime Chatting App that uses Firebase for its authentication and storage.
+- It consists of:
 1. Registrating new User
 2. Logging in
 3. Messages History
