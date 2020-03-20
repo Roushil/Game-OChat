@@ -1,4 +1,4 @@
-# Game-OChat
+# GameO'Chat
 
 A realtime Chatting App that uses Firebase for its authentication and storage.
 - ***Functionalities:***
