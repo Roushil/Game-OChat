@@ -21,8 +21,7 @@ This is a chatting app in swift that uses firebase for folowing:
 
 # Architecture
 This app follows the **Clean Swift(VIP)** Pattern which consist: 
-1. Entity       
-  - > Data Model
+1. Entity       > Data Model
 2. Worker       // API and Database Logic
 3. Interactor   // Business Logic
 4. Presenter   // Viewlogic
