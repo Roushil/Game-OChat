@@ -9,9 +9,9 @@ It consists of:
 5. Sending Text and Images To Chat Partner
 
 
-***- Used ios 9 constraints as well as use of storyboard for UI Design***
-***- Handling Alerts in Error and Success***
-***- Cache Images***
+- ***Used ios 9 constraints as well as use of storyboard for UI Design***
+- ***Handling Alerts in Error and Success***
+- ***Cache Images***
 
 # Firebase
 This is a chatting app in swift that uses firebase for folowing: 
