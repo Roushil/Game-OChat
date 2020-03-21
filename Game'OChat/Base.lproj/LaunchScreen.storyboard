@@ -18,11 +18,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAn-jG-2PH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Ld5-Mo-SH9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ld5-Mo-SH9">
                                         <rect key="frame" x="0.0" y="213" width="414" height="471"/>
+                                        <color key="backgroundColor" red="0.1137254902" green="0.08235294118" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.10980392160000001" green="0.086274509799999996" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ld5-Mo-SH9" secondAttribute="trailing" id="0sN-Wg-OcR"/>
                                     <constraint firstAttribute="bottom" secondItem="Ld5-Mo-SH9" secondAttribute="bottom" constant="212" id="HOC-je-Wuz"/>
@@ -46,6 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AppLogo" width="166.66667175292969" height="166.66667175292969"/>
+        <image name="logo" width="166.66667175292969" height="166.66667175292969"/>
     </resources>
 </document>
