@@ -9,8 +9,9 @@ A realtime Chatting App that uses Firebase for its authentication and storage.
   - Sending Text and Images To Chat Partner
 
 - ***Used ios 9 constraints as well as use of storyboard for UI Design***
-- ***Handling Alerts in Error and Success***
+- ***Handling Alerts for Error and Success***
 - ***Cache Images***
+- ***Animating TableView Cells***
 
 
 # Firebase
