@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Firebase
 
 let imageCache = NSCache<AnyObject, AnyObject>()
 
