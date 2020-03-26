@@ -60,6 +60,8 @@ class LogInViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        setBordersAndDelegates()
     }
         
     @IBAction func logInUser(_ sender: Any) {
@@ -72,8 +74,30 @@ class LogInViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
-
     
+    fileprivate func setBordersAndDelegates(){
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        emailTextField.underline(changeColor: false)
+        passwordTextField.underline(changeColor: false)
+    }
+}
+
+extension LogInViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.underline(changeColor: false)
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        
+        textField.underline(changeColor: true)
+    }
 }
 
 extension LogInViewController: LogInViewControllerInput {
@@ -100,3 +124,4 @@ extension LogInViewController: LogInViewControllerInput {
         
     }
 }
+

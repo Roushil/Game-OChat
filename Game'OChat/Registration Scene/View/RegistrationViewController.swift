@@ -64,6 +64,11 @@ class RegistrationViewController: UIViewController {
         uploadProfileImage()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setBordersAndDelegates()
+    }
     
     @IBAction func registerUser(_ sender: Any) {
         
@@ -104,6 +109,33 @@ extension RegistrationViewController{
     @objc func dismissAlert(){
         
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    fileprivate func setBordersAndDelegates(){
+        
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        nameTextField.underline(changeColor: false)
+        emailTextField.underline(changeColor: false)
+        passwordTextField.underline(changeColor: false)
+    }
+
+}
+
+extension RegistrationViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.underline(changeColor: false)
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        
+        textField.underline(changeColor: true)
     }
 }
 
