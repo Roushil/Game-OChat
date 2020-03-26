@@ -12,6 +12,7 @@ A realtime Chatting App that uses Firebase for its authentication and storage.
 - ***Handling Alerts for Error and Success***
 - ***Cache Images***
 - ***Animating TableView Cells***
+- ***Template for SignUp Page*** 
 
 
 # Firebase
