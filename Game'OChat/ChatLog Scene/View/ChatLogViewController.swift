@@ -69,8 +69,9 @@ class ChatLogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         output.addContactDetail(request: ChatLog.NewContact.Request())
-        output.loadChat(request: ChatLog.Message.Load.Request())
+        //output.loadChat(request: ChatLog.Message.Load.Request())
         
         chatsCollectionView.alwaysBounceVertical = true
         chatsCollectionView.register(ChatCollectionViewCell.self, forCellWithReuseIdentifier: K.Cell.chat)

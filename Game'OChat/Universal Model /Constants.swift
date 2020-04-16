@@ -14,7 +14,7 @@ struct K{
     
     struct Reference{
         
-        static var database: DatabaseReference = Database.database().reference(fromURL: "url")
+        static var database: DatabaseReference = Database.database().reference(fromURL:  "https://game-ochat.firebaseio.com/")
         
     }
     
