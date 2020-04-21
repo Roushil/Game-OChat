@@ -1,6 +1,6 @@
 # GameO'Chat
 
-![Screen Shot 2020-04-21 at 2 47 04 PM](https://user-images.githubusercontent.com/25398924/79848717-13b81c00-83df-11ea-8f49-12843381c045.png)
+
 
 ![ezgif com-optimize](https://user-images.githubusercontent.com/25398924/79851800-6d224a00-83e3-11ea-8791-43aa7334aa78.gif)
 
