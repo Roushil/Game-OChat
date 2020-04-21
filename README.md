@@ -2,7 +2,6 @@
 
 ![Screen Shot 2020-04-21 at 2 47 04 PM](https://user-images.githubusercontent.com/25398924/79848717-13b81c00-83df-11ea-8f49-12843381c045.png)
 
-<div style="width:360px;max-width:100%;"><div style="height:0;padding-bottom:104.44%;position:relative;"><iframe width="360" height="376" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/3xhv29"></iframe></div><p><a href="https://imgflip.com/gif/3xhv29">viaImgflip</a></p></div>
 
 
 A realtime Chatting App that uses Firebase for its authentication and storage.
