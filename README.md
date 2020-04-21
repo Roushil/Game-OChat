@@ -4,6 +4,8 @@
 
 ![ezgif com-optimize](https://user-images.githubusercontent.com/25398924/79851800-6d224a00-83e3-11ea-8791-43aa7334aa78.gif)
 
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/79852098-d7d38580-83e3-11ea-87bc-68d5df305ffb.gif)
+
 
 A realtime Chatting App that uses Firebase for its authentication and storage.
 - ***Functionalities:***
