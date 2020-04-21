@@ -1,9 +1,5 @@
 # GameO'Chat
 
-
-![Screen Shot 2020-04-21 at 2 46 03 PM](https://user-images.githubusercontent.com/25398924/79848702-0f8bfe80-83df-11ea-8bd5-a9beec8b39fb.png)
-
-
 ![Screen Shot 2020-04-21 at 2 47 04 PM](https://user-images.githubusercontent.com/25398924/79848717-13b81c00-83df-11ea-8f49-12843381c045.png)
 
 
