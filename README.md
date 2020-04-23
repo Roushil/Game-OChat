@@ -3,7 +3,7 @@
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80098678-eb6d2080-858a-11ea-95ff-8a1d2b809e57.gif)
 
 
-![ezgif com-optimize](https://user-images.githubusercontent.com/25398924/79851800-6d224a00-83e3-11ea-8791-43aa7334aa78.gif)
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80099019-69312c00-858b-11ea-90b0-b8a1ce80effd.gif)
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/79852098-d7d38580-83e3-11ea-87bc-68d5df305ffb.gif)
 
