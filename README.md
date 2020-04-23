@@ -5,7 +5,8 @@
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80099019-69312c00-858b-11ea-90b0-b8a1ce80effd.gif)
 
-![ezgif com-video-to-gif-2](https://user-images.githubusercontent.com/25398924/80099354-ee1c4580-858b-11ea-9ecf-579000f0652a.gif)
+![ezgif com-video-to-gif-3](https://user-images.githubusercontent.com/25398924/80100465-a1396e80-858d-11ea-973b-d4ad74cd62af.gif)
+
 
 
 
