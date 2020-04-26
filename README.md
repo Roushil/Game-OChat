@@ -1,5 +1,16 @@
 # GameO'Chat
 
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80098678-eb6d2080-858a-11ea-95ff-8a1d2b809e57.gif)
+
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80099019-69312c00-858b-11ea-90b0-b8a1ce80effd.gif)
+
+![ezgif com-video-to-gif-3](https://user-images.githubusercontent.com/25398924/80100465-a1396e80-858d-11ea-973b-d4ad74cd62af.gif)
+
+
+
+
+
 A realtime Chatting App that uses Firebase for its authentication and storage.
 - ***Functionalities:***
   - Registrating new User
