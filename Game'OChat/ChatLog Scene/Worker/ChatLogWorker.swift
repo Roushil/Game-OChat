@@ -43,7 +43,6 @@ class ChatLogWorker {
                 self.alertDelegate?.alertError(message: err.localizedDescription)
             }
             else{
-                
                 storageReference.downloadURL { (url, error) in
                 
                     guard let downloadURL = url?.absoluteString else { return }
