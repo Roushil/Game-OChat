@@ -8,9 +8,10 @@
 import UIKit
 
 protocol AddContactsDataStore {
-    //var title: String? { get set }
+    var currentUser: String? { get set }
 }
 
 class DefaultAddContactsDataStore: AddContactsDataStore {
-    //var title: String?
+    
+    var currentUser: String?
 }

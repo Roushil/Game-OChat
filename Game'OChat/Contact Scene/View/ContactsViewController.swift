@@ -59,6 +59,7 @@ class ContactsViewController: UIViewController {
     
     var viewMessages: Contacts.Message.ViewModel?
     var timer: Timer?
+    lazy var currentUser = ""
     
     @IBOutlet weak var contactMessageTableView: UITableView!
     override func viewDidLoad() {
@@ -91,7 +92,8 @@ class ContactsViewController: UIViewController {
     }
     @IBAction func addNewContacts(_ sender: Any) {
         
-        router.routeToAddContactsScene()
+        router.routeToAddContactsScene(currentUserName: currentUser)
+
     }
 }
 
@@ -106,6 +108,7 @@ extension ContactsViewController: ContactsViewControllerInput {
         
         guard let titleName = viewModel.userData[K.name] as? String, let profileImage = viewModel.userData[K.profileImageURL] as? String else { return }
         setNavigationItems(title: titleName, profileImage: profileImage)
+        currentUser = titleName
     }
     
     func displayMessages(viewModel: Contacts.Message.ViewModel){

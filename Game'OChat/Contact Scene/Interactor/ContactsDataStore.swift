@@ -9,10 +9,12 @@ import UIKit
 
 protocol ContactsDataStore {
     
-    var selectedNewContact: AddContactsModel? { get set}
+    var selectedNewContact: AddContactsModel? { get set }
+    var currentUserName: String? { get set }
 }
 
 class DefaultContactsDataStore: ContactsDataStore {
     
     var selectedNewContact: AddContactsModel?
+    var currentUserName: String?
 }

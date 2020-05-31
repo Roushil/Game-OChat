@@ -58,13 +58,13 @@ class AddContactsViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: K.cancel, style: .plain, target: self, action: #selector(cancelContact))
-        output.fetch(request: AddContacts.Fetch.Request())
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
             
-        
+        output.fetch(request: AddContacts.Fetch.Request())
     }
     
 

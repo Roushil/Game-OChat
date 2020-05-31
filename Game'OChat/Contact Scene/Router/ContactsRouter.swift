@@ -14,7 +14,7 @@ import UIKit
 
 protocol ContactsRoutingLogic {
     func routeToLoginOrRegisterScene()
-    func routeToAddContactsScene()
+    func routeToAddContactsScene(currentUserName: String)
     func routeToChatLogScene(contactDetail: AddContactsModel)
 }
 
@@ -34,12 +34,16 @@ class ContactsRouter: NSObject, ContactsRoutingLogic, ContactsDataPassing {
 
     }
     
-    func routeToAddContactsScene(){
+    func routeToAddContactsScene(currentUserName: String){
         
         let addContactsVc = viewController.storyboard?.instantiateViewController(identifier: K.ViewControllers.addContact) as! AddContactsViewController
+        var addContactDS = addContactsVc.router!.dataStore!
         addContactsVc.contactsVC = viewController
+        dataStore.currentUserName = currentUserName
         let navController = UINavigationController(rootViewController: addContactsVc)
+        passDataToAddContactScene(source: dataStore, destination: &addContactDS)
         navigateToAddContactScene(source: viewController, destination: navController)
+        
     }
     
     func routeToChatLogScene(contactDetail: AddContactsModel){
@@ -58,6 +62,12 @@ extension ContactsRouter {
             
             destination.selectedNewContact = source.selectedNewContact
         }
+    
+    func passDataToAddContactScene(source: ContactsDataStore, destination: inout AddContactsDataStore) {
+        
+        destination.currentUser = source.currentUserName
+    
+    }
 }
 
 extension ContactsRouter {

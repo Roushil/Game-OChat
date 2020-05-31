@@ -29,7 +29,8 @@ class AddContactsInteractor: AddContactsInteractorInput {
     
     func fetch(request: AddContacts.Fetch.Request) {
         
-        worker.fetch()
+        guard let user = dataStore.currentUser else { return }
+        worker.fetch(currentUser: user)
         worker.delegate = self
     }
 }
