@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6DA753E2-3E08-4784-977E-3634F932B4DD"
-            shouldBeEnabled = "Yes"
+            uuid = "C800DB95-817D-41D3-A20B-CBCCB9AD2255"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game&apos;OChat/Contact Scene/Worker/ContactsWorker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "loadUserMessages()"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,15 +23,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C800DB95-817D-41D3-A20B-CBCCB9AD2255"
-            shouldBeEnabled = "Yes"
+            uuid = "BA3A1889-F881-48EE-8E6F-5EE56BF39B30"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game&apos;OChat/Contact Scene/Worker/ContactsWorker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "loadUserMessages()"
             landmarkType = "7">
          </BreakpointContent>

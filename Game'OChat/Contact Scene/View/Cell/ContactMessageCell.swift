@@ -31,12 +31,13 @@ class ContactMessageCell: UITableViewCell {
         let msgPartner = MessagePartners()
         
         if let id = msgPartner.getPartnerID(messageDetail: contactDetail)  {
-            K.Reference.database.child(K.users).child(id).observeSingleEvent(of: .value, with: {  (snapshot) in
+            K.Reference.database.child(K.users).child(id).observeSingleEvent(of: .value, with: { [weak self]  (snapshot) in
                 
+                guard let _self = self else { return }
                 guard let dictionary =  snapshot.value as? [String: AnyObject], let name =  dictionary[K.name] as? String, let image = dictionary[K.profileImageURL] as? String else { return }
                 
-                self.contactName.text = name
-                self.contactProfileImage.loadImageUsingCache(image: image)
+                _self.contactName.text = name
+                _self.contactProfileImage.loadImageUsingCache(image: image)
                 
             }, withCancel: nil)
         }

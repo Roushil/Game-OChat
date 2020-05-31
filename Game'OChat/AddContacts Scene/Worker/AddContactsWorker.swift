@@ -25,15 +25,16 @@ class AddContactsWorker:NSObject {
     
     func fetch() {
 
-        K.Reference.database.child(K.users).observe(.childAdded, with: { (snapShot) in
-
+        K.Reference.database.child(K.users).observe(.childAdded, with: { [weak self] (snapShot) in
+            
+            guard let _self = self else { return }
             guard let dictionary = snapShot.value as? [String: AnyObject] else { return }
             let uniqueID = snapShot.ref.key!
             let name = dictionary[K.name] as? String
             let email = dictionary[K.email] as? String
             let profileImage = dictionary[K.profileImageURL] as? String
-            self.contacts.append(AddContactsModel(name: name, email: email, profileImageURL: profileImage, uniqueUserID: uniqueID))
-            self.delegate?.passData(contacts: self.contacts)
+            _self.contacts.append(AddContactsModel(name: name, email: email, profileImageURL: profileImage, uniqueUserID: uniqueID))
+            _self.delegate?.passData(contacts: _self.contacts)
             }, withCancel: nil)
     }
 }

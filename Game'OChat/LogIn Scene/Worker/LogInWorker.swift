@@ -20,14 +20,14 @@ class LogInWorker {
     
     func logInUser(userData: LoginData, vc: UIViewController) {
         
-        Auth.auth().signIn(withEmail: userData.email, password: userData.password) { (user, error) in
-            
+        Auth.auth().signIn(withEmail: userData.email, password: userData.password) { [weak self] (user, error) in
+            guard let _self = self else { return }
             if let err = error{
-                self.alertErrorDelegate?.alertError(message: err.localizedDescription)
+                _self.alertErrorDelegate?.alertError(message: err.localizedDescription)
             }
             else{
                 
-                self.alertSuccessDelegate?.alertSuccess(message: K.logged)
+                _self.alertSuccessDelegate?.alertSuccess(message: K.logged)
                 vc.dismiss(animated: true, completion: nil)
             }
         }

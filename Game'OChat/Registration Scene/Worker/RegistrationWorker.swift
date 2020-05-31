@@ -21,10 +21,10 @@ class RegistrationWorker {
     func registerUserData(registerData: RegisterData, vc: UIViewController) {
         
         
-        Auth.auth().createUser(withEmail: registerData.email, password: registerData.password) { (authResult, error) in
-            
+        Auth.auth().createUser(withEmail: registerData.email, password: registerData.password) { [weak self] (authResult, error) in
+            guard let _self = self else { return }
             if let err = error{
-                self.errorAlertDelegate?.alertError(message: err.localizedDescription)
+                _self.errorAlertDelegate?.alertError(message: err.localizedDescription)
             }
             else{
                 
@@ -32,25 +32,29 @@ class RegistrationWorker {
                 let imageName = NSUUID().uuidString
                 let storageReference = Storage.storage().reference().child("profile_images/\(imageName).jpg")
                 guard let image = registerData.profileImage.jpegData(compressionQuality: 0.1) else { return }
-                storageReference.putData(image, metadata: nil) { (metaData, error) in
+                
+                storageReference.putData(image, metadata: nil) { [weak self] (metaData, error) in
+                    guard let _self = self else { return }
                     
                     if let err = error{
-                        self.errorAlertDelegate?.alertError(message: err.localizedDescription)
+                        _self.errorAlertDelegate?.alertError(message: err.localizedDescription)
                     }
                     else{
                         
-                        storageReference.downloadURL { (url, error) in
-                            guard let downloadURL = url?.absoluteString else { return }
+                        storageReference.downloadURL { [unowned self] (url, error) in
                             
+                            guard let downloadURL = url?.absoluteString else { return }
+                    
                             let userReference = K.Reference.database.child(K.users).child(uid)
                             let values = [K.name: registerData.name, K.email: registerData.email, K.profileImageURL: downloadURL]
-                            userReference.updateChildValues(values) { (error, reference) in
+                            userReference.updateChildValues(values) { [weak self] (error, reference) in
+                                guard let _self = self else { return }
                                 
                                 if let err = error{
-                                    self.errorAlertDelegate?.alertError(message: err.localizedDescription)
+                                    _self.errorAlertDelegate?.alertError(message: err.localizedDescription)
                                 }
                                 else{
-                                    self.successAlertDelegate?.alertSuccess(message: K.registered)
+                                    _self.successAlertDelegate?.alertSuccess(message: K.registered)
                                     vc.dismiss(animated: true, completion: nil)
                                 }
                             }

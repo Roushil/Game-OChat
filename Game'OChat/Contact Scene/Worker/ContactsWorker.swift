@@ -56,10 +56,10 @@ class ContactsWorker {
         else{
             
             let userId = Auth.auth().currentUser?.uid
-            K.Reference.database.child(K.users).child(userId!).observeSingleEvent(of: .value, with: { (snapShot) in
-                
+            K.Reference.database.child(K.users).child(userId!).observeSingleEvent(of: .value, with: { [weak self] (snapShot) in
+                guard let _self = self else { return }
                 guard let dictionary = snapShot.value as? [String: AnyObject] else { return }
-                self.logDelegate?.checkLog(isLogout: false, userData: dictionary)
+                _self.logDelegate?.checkLog(isLogout: false, userData: dictionary)
             }, withCancel: nil)
         }
     }
@@ -80,29 +80,30 @@ class ContactsWorker {
     func loadUserMessages(){
         
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
-        K.Reference.database.child(K.userMessages).child(currentUserId).observe(.childAdded, with: { (snapShot) in
-            
+        K.Reference.database.child(K.userMessages).child(currentUserId).observe(.childAdded, with: { [unowned self] (snapShot) in
+
             let userID = snapShot.key
-            K.Reference.database.child(K.userMessages).child(currentUserId).child(userID).observe(.childAdded, with: { (snapShot) in
+            K.Reference.database.child(K.userMessages).child(currentUserId).child(userID).observe(.childAdded, with: { [unowned self] (snapShot) in
                 
                 let messageId = snapShot.key
-                K.Reference.database.child(K.messages).child(messageId).observeSingleEvent(of: .value, with: { (snapshot) in
+                K.Reference.database.child(K.messages).child(messageId).observeSingleEvent(of: .value, with: { [weak self] (snapshot) in
                     
+                    guard let _self = self else { return }
                     guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
                     
                     let message = MessageModel(dictionary: dictionary)
-            
-                    guard let chatPartnerID = self.messagePartner.getPartnerID(messageDetail: message) else {return}
+           
+                    guard let chatPartnerID = _self.messagePartner.getPartnerID(messageDetail: message) else {return}
                     
-                    self.messageDictionary[chatPartnerID] = message
-                    self.messages = Array(self.messageDictionary.values)
+                    _self.messageDictionary[chatPartnerID] = message
+                    _self.messages = Array(_self.messageDictionary.values)
                     
-                    self.messages.sort(by: { (message1, message2) -> Bool in
+                    _self.messages.sort(by: { (message1, message2) -> Bool in
 
                         return message1.timeStamp!.int32Value > message2.timeStamp!.int32Value
                     })
 
-                    self.messageDelegate?.passMessage(messageModel: self.messages)
+                    _self.messageDelegate?.passMessage(messageModel: _self.messages)
                     
                 }, withCancel: nil)
                 
@@ -118,14 +119,15 @@ class ContactsWorker {
         let message = self.messages[rowIndex]
         guard let currentUserId = Auth.auth().currentUser?.uid, let chatPartnerID = self.messagePartner.getPartnerID(messageDetail: message) else { return }
         
-        K.Reference.database.child(K.userMessages).child(currentUserId).child(chatPartnerID).removeValue { (error, reference) in
+        K.Reference.database.child(K.userMessages).child(currentUserId).child(chatPartnerID).removeValue {   [weak self] (error, reference) in
+            guard let _self = self else { return }
             
             if let err = error{
-                self.alertDelegate?.alertError(message: err.localizedDescription)
+                _self.alertDelegate?.alertError(message: err.localizedDescription)
             }
             
-            self.messageDictionary.removeValue(forKey: chatPartnerID)
-            self.deleteMessageDelegate?.deleteContact(rowIndex: rowIndex)
+            _self.messageDictionary.removeValue(forKey: chatPartnerID)
+            _self.deleteMessageDelegate?.deleteContact(rowIndex: rowIndex)
         }
     }
 }
