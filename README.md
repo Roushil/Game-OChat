@@ -3,11 +3,11 @@
 
 A realtime Chatting App that uses Firebase for its authentication and storage.
 - ***Functionalities:***
-  - Registrating new User
-  - Logging in
+  - Authentication
   - Messages History
   - Show Profile Picture
   - Chatting Scene
+  - New Contacts
   - Sending Text and Images To Chat Partner
 
 - ***Used ios 9 constraints as well as use of storyboard for UI Design***
@@ -15,6 +15,16 @@ A realtime Chatting App that uses Firebase for its authentication and storage.
 - ***Cache Images***
 - ***Animating TableView Cells***
 - ***Template for SignUp Page*** 
+
+
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/83981766-8143eb80-a93e-11ea-9f11-1f5e92b12e2b.gif)
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80098678-eb6d2080-858a-11ea-95ff-8a1d2b809e57.gif)
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80099019-69312c00-858b-11ea-90b0-b8a1ce80effd.gif)
+
+![ezgif com-video-to-gif-3](https://user-images.githubusercontent.com/25398924/80100465-a1396e80-858d-11ea-973b-d4ad74cd62af.gif)
 
 
 # Firebase
@@ -37,16 +47,5 @@ This app follows the **Clean Swift(VIP)** Pattern which consist:
 > View Controller
 6. Router       
 >Transferring Data To VC
-
-
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/83981766-8143eb80-a93e-11ea-9f11-1f5e92b12e2b.gif)
-
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80098678-eb6d2080-858a-11ea-95ff-8a1d2b809e57.gif)
-
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80099019-69312c00-858b-11ea-90b0-b8a1ce80effd.gif)
-
-![ezgif com-video-to-gif-3](https://user-images.githubusercontent.com/25398924/80100465-a1396e80-858d-11ea-973b-d4ad74cd62af.gif)
-
-
 
 
