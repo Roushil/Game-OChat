@@ -1,4 +1,5 @@
 PODS:
+  - BulletinBoard (4.1.1)
   - Firebase/Auth (6.23.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.5.2)
@@ -67,6 +68,7 @@ PODS:
   - PromisesObjC (1.2.8)
 
 DEPENDENCIES:
+  - BulletinBoard
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
@@ -74,6 +76,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - BulletinBoard
     - Firebase
     - FirebaseAuth
     - FirebaseAuthInterop
@@ -92,6 +95,7 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
+  BulletinBoard: 25cf38fa1dd9292936ea6122b95ec2ec9b773e9c
   Firebase: 585ae467b3edda6a5444e788fda6888f024d8d6f
   FirebaseAuth: e50319ecc114acf93c2b9581e15d6604ddd7eeb2
   FirebaseAuthInterop: a0f37ae05833af156e72028f648d313f7e7592e9
@@ -109,6 +113,6 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: 1c6cb3414fab77cdcc2a35ba6048a5f22c9bb2b5
+PODFILE CHECKSUM: 1efd3da0a9b8b0de5346221e3f15b0c3d3ea121e
 
 COCOAPODS: 1.8.4

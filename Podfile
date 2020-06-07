@@ -8,5 +8,6 @@ target 'Game\'OChat' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
   pod 'IQKeyboardManagerSwift'
+  pod 'BulletinBoard'
 end
 

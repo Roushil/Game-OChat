@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import BLTNBoard
 
 protocol ContactsViewControllerInput: class {
     func displayLogOut(viewModel: Contacts.Logout.ViewModel)
@@ -60,11 +61,12 @@ class ContactsViewController: UIViewController {
     var viewMessages: Contacts.Message.ViewModel?
     var timer: Timer?
     lazy var currentUser = ""
+    var manager: BLTNItemManager?
     
     @IBOutlet weak var contactMessageTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupLongPressGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -154,7 +156,8 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let contactData = viewMessages?.messageViewModel[indexPath.row] else { return }
-        goToChatLog(contactData: contactData)
+        goToChatLog(messageModel: contactData)
+
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -169,12 +172,80 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate{
 }
 
 
+extension ContactsViewController: UIGestureRecognizerDelegate {
+    
+    func setupLongPressGesture() {
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        longPressGesture.minimumPressDuration = 0.4
+        longPressGesture.delegate = self
+        self.contactMessageTableView.addGestureRecognizer(longPressGesture)
+    }
+
+    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer){
+        if gestureRecognizer.state == .began {
+            let touchPoint = gestureRecognizer.location(in: self.contactMessageTableView)
+            if let indexPath = contactMessageTableView.indexPathForRow(at: touchPoint) {
+                
+                guard let data = viewMessages?.messageViewModel[indexPath.row] else { return }
+                profilePictureTapped(messageModel: data)
+            }
+        }
+    }
+}
+
 extension ContactsViewController{
     
-    func goToChatLog(contactData: MessageModel){
+    func goToChatLog(messageModel: MessageModel){
+        
+        getUserDetails(from: messageModel) { [unowned self] (contact) in
+            
+            self.router.routeToChatLogScene(contactDetail: contact)
+        }
+        
+    }
+    
+    @objc func handleReloadtable(){
+        
+        DispatchQueue.main.async {
+            self.contactMessageTableView.reloadData()
+        }
+    }
+
+    
+    func profilePictureTapped(messageModel: MessageModel) {
+     
+        getUserDetails(from: messageModel) { [weak self] (contact) in
+            
+            guard let _self = self, let name = contact.name, let email = contact.email, let imageURL = contact.profileImageURL else { return }
+            _self.setBulletinBoard(name: name, email: email, image: imageURL)
+        }
+    }
+    
+    func setBulletinBoard(name:String, email: String, image: String){
+
+        guard let imageURL = URL(string: image), let imageData = try? Data(contentsOf: imageURL) else { return }
+    
+        let item = BLTNPageItem(title: name)
+        item.descriptionText = email
+        item.image = UIImage(data: imageData)
+        item.actionButtonTitle = "OK"
+        
+        item.actionHandler = { [unowned self] _ in
+            self.manager?.dismissBulletin(animated: true)
+        }
+        
+        manager = BLTNItemManager(rootItem: item)
+        manager?.showBulletin(above: self)
+    }
+    
+    
+    func getUserDetails(from model: MessageModel, completion: @escaping(AddContactsModel)->Void) {
         
         let msgPartner = MessagePartners()
-        guard let currentUserID = msgPartner.getPartnerID(messageDetail: contactData) else { return }
+        var contactModel: AddContactsModel?
+    
+        guard let currentUserID = msgPartner.getPartnerID(messageDetail: model) else { return }
         
         K.Reference.database.child(K.users).child(currentUserID).observeSingleEvent(of: .value, with: { (snapShot) in
             
@@ -183,16 +254,9 @@ extension ContactsViewController{
             let name = dictionary[K.name] as? String
             let email = dictionary[K.email] as? String
             let profileImage = dictionary[K.profileImageURL] as? String
-            let contactDetail = AddContactsModel(name: name, email: email, profileImageURL: profileImage, uniqueUserID: uniqueID)
-            self.router.routeToChatLogScene(contactDetail: contactDetail)
+            contactModel = AddContactsModel(name: name, email: email, profileImageURL: profileImage, uniqueUserID: uniqueID)
+            completion(contactModel!)
         }, withCancel: nil)
     }
-    
-    @objc func handleReloadtable(){
-        
-        DispatchQueue.main.async {
-            
-            self.contactMessageTableView.reloadData()
-        }
-    }
 }
+
