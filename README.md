@@ -1,8 +1,6 @@
 # GameO'Chat
 
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80098678-eb6d2080-858a-11ea-95ff-8a1d2b809e57.gif)
-
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/83981766-8143eb80-a93e-11ea-9f11-1f5e92b12e2b.gif)
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80098678-eb6d2080-858a-11ea-95ff-8a1d2b809e57.gif)       ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/83981766-8143eb80-a93e-11ea-9f11-1f5e92b12e2b.gif)
 
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80099019-69312c00-858b-11ea-90b0-b8a1ce80effd.gif)
