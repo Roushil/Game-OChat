@@ -1,15 +1,5 @@
 # GameO'Chat
 
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/83981766-8143eb80-a93e-11ea-9f11-1f5e92b12e2b.gif)
-
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80098678-eb6d2080-858a-11ea-95ff-8a1d2b809e57.gif)
-
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80099019-69312c00-858b-11ea-90b0-b8a1ce80effd.gif)
-
-![ezgif com-video-to-gif-3](https://user-images.githubusercontent.com/25398924/80100465-a1396e80-858d-11ea-973b-d4ad74cd62af.gif)
-
-
-
 
 A realtime Chatting App that uses Firebase for its authentication and storage.
 - ***Functionalities:***
@@ -48,14 +38,15 @@ This app follows the **Clean Swift(VIP)** Pattern which consist:
 6. Router       
 >Transferring Data To VC
 
-# Pods
-1. pod 'Firebase/Auth'           
-> Authenticating Users 
-2. pod 'Firebase/Storage'        
-> Storing Multimedia
-3. pod 'Firebase/Database'       
-> Realtime Database
-4. pod 'IQKeyboardManagerSwift'  
-> Managing Keyboard in Messaging
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/83981766-8143eb80-a93e-11ea-9f11-1f5e92b12e2b.gif)
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80098678-eb6d2080-858a-11ea-95ff-8a1d2b809e57.gif)
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/25398924/80099019-69312c00-858b-11ea-90b0-b8a1ce80effd.gif)
+
+![ezgif com-video-to-gif-3](https://user-images.githubusercontent.com/25398924/80100465-a1396e80-858d-11ea-973b-d4ad74cd62af.gif)
+
+
 
 
